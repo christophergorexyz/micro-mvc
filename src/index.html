@@ -1,0 +1,61 @@
+<!DOCUMENT html>
+<html>
+
+<head>
+  <title>MVC-Test</title>
+  <script type="text/javascript" src="js/index.js"></script>
+  <style>
+    .application-container form *{
+          box-sizing: border-box;
+      }
+      .application-container form {
+        width: 500px;
+      }
+      .application-container form,
+      .application-container canvas{
+        display:inline-block;
+        vertical-align: top;
+        border: 1px solid black;
+      }
+      .application-container form div{
+        width:100%;
+        font-size: 0;
+      }
+      .application-container form input,
+      .application-container form label {
+        font-size:initial;
+        display:inline-block;
+        width:50%;
+      }
+      .application-container form label{
+        text-align: right;
+        padding-right:1em;
+      }
+      .application-container form input {
+        text-align: left;
+        padding-left:1em;
+      }
+  </style>
+</head>
+
+<body class="application-container">
+  <div class="application-name">
+  </div>
+  <form>
+    <div>
+      <label for="x">x:</label>
+      <input type="number" name="x" data-observable value="0" />
+    </div>
+    <div>
+      <label for="yi">yi:</label>
+      <input type="number" name="yi" data-observable value="0" />
+    </div>
+  </form>
+  <canvas width="500px" height="500px"></canvas>
+  <script type="text/javascript">
+    let app = new window.mvctest.ApplicationController('.application-container');
+
+  </script>
+</body>
+
+</html>
