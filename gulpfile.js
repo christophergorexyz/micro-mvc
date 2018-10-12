@@ -16,7 +16,7 @@ gulp.task('browserify', (done) => {
     }
     browserify({
         entries: ['src/index'],
-        standalone: 'mvctest',
+        standalone: 'mvc',
         debug: true
       })
       .transform(babelify, {
