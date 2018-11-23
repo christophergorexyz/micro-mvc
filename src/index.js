@@ -50,7 +50,7 @@ class Model extends MVCEventEmitter {
         },
         set: (val) => {
           dataModel[k] = val;
-          let e = new CustomEvent(`mvc-propertychanged-${k}`, {
+          let e = new CustomEvent(`mvc-propertychanged`, {
             detail: {
               model: dataModel,
               property: k,
@@ -79,8 +79,8 @@ class Model extends MVCEventEmitter {
       //that only the updates are necessary to process
       let e = new CustomEvent('mvc-modelmodified', {
         detail: {
-          model: dataModel,
           updates: val,
+          model: dataModel,
           properties: [Object.keys(val)],
           values: [Object.values(val)]
         }
@@ -100,15 +100,16 @@ class View extends MVCEventEmitter {
   constructor(viewDOM, model) {
     super();
 
-    let observers = viewDOM.querySelectorAll('[data-observes]');
-    let controls = viewDOM.querySelectorAll('[data-controls]');
+    let observers = viewDOM.querySelectorAll('[mvc-observes]');
+    let controls = viewDOM.querySelectorAll('[mvc-controls]');
+
 
     function getControlValue(control) {
       switch (control.tagName) {
         case "INPUT":
           return control.value;
-        case "TEXTAREA":
-          return control.innerHTML;
+          //case "TEXTAREA":
+          //return control.innerHTML;
         default:
           return control.innerHTML;
       }
@@ -130,27 +131,39 @@ class View extends MVCEventEmitter {
     }
 
     for (let i = 0; i < controls.length; i++) {
-      controls[i].addEventListener('change', (e) => {
-        let ce = new CustomEvent(`mvc-inputchanged-${controls[i].getAttribute('name')}`, {
-          detail: {
+      let controlledValues = controls[i].getAttribute('mvc-controls').split(',');
+      for (let val in controlledValues) {
+        controls[i].addEventListener('change', (e) => {
+          let ce = new CustomEvent(`mvc-inputchanged`, {
             target: e.target,
-          }
+            detail: {
+              property: controlledValues[val],
+              value: getControlValue(controls[i])
+            }
+          });
+          model[controlledValues[val]] = getControlValue(controls[i]);
+          this.dispatchEvent(ce);
         });
-        this.dispatchEvent(ce);
-      });
+      }
     }
 
     for (let i = 0; i < observers.length; i++) {
-      model.addEventListener(`mvc-propertychanged-${observers[i].getAttribute('data-observes')}`, (e) => {
-        if (e.detail.target !== observers[i]) {
-          updateObserver(observers[i], e.detail.value);
-        }
-      });
+      let observedValues = observers[i].getAttribute('mvc-observes').split(',');
+      for (let val in observedValues) {
+        model.addEventListener(`mvc-propertychanged`, (e) => {
+          if (observedValues[val] === e.detail.property && e.target !== observers[i]) {
+            updateObserver(observers[i], e.detail.value);
+          }
+        });
+      }
     }
 
     model.addEventListener(`mvc-modelmodified`, (e) => {
       for (let i = 0; i < observers.length; i++) {
-        updateObserver(observers[i], e.detail.updates[observers[i].getAttribute('data-observes')]);
+        let observedValues = observers[i].getAttribute('mvc-observes').split(',');
+        for (let val in observedValues) {
+          updateObserver(observers[i], e.detail.updates[observedValues[val]]);
+        }
       }
     });
   }

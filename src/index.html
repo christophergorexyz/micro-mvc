@@ -44,14 +44,14 @@
   <form>
     <div>
       <label for="x">x:</label>
-      <input type="number" name="x" mvc-controls-x mvc-observes-x value="0" />
+      <input type="number" name="x" mvc-controls="x" mvc-observes="x" value="0" />
     </div>
     <div>
       <label for="y">y:</label>
-      <input type="number" name="y" mvc-controls-y mvc-observes-y value="0" />
+      <input type="number" name="y" mvc-controls="y" mvc-observes="y" value="0" />
     </div>
   </form>
-  <canvas width="500px" height="500px" mvc-controls-x mvc-controls-y mvc-observes-x mvc-observes-y></canvas>
+  <canvas width="500px" height="500px" mvc-controls="x,y" mvc-observes="x,y"></canvas>
   <script type="text/javascript">
     let application = {
       name: 'Observability Tester',
@@ -85,14 +85,18 @@
       });
     });
 
+    function updateModel(e) {
+      coordinateModel[e.target] = e.val;
+    }
+
     function updateCanvas(e) {
       context.clearRect(0, 0, canvas.width, canvas.height);
       context.fillStyle = 'rgb(0,0,0)';
       context.fillRect(coordinateModel.x - 5, coordinateModel.y - 5, 10, 10);
     }
 
-    coordinateModel.addEventListener('mvc-propertychanged-x', updateCanvas);
-    coordinateModel.addEventListener('mvc-propertychanged-y', updateCanvas);
+    coordinateModel.addEventListener('mvc-propertychanged', updateCanvas);
+    coordinateModel.addEventListener('mvc-inputchanged', updateCanvas);
     coordinateModel.addEventListener('mvc-modelmodified', updateCanvas);
 
     applicationNameElement = document.querySelector(`${applicationContainer} .application-name`);
