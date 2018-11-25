@@ -122,8 +122,7 @@ class View extends MVCEventEmitter {
         case "INPUT":
           observer.value = value;
           break;
-          //TODO: don't care much about SELECT rn
-          //case "SELECT":
+        //case "SELECT":
         default:
           observer.innerHTML = value;
           break;
@@ -169,16 +168,7 @@ class View extends MVCEventEmitter {
   }
 }
 
-class Control extends MVCEventEmitter {
-  constructor(domObject, model) {
-    super();
-    this._domObject = domObject;
-
-  }
-}
-
 export {
   Model,
-  View,
-  Control
+  View
 };
