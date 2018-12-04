@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
+    "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:slugjuice/micro-mvc.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -12,8 +16,12 @@
     "browserify": "^16.2.3",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
     "gulp-util": "^3.0.8",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

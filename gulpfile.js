@@ -1,42 +1,43 @@
 'use strict';
 let gulp = require('gulp'),
-  gutil = require('gulp-util'),
   browserify = require('browserify'),
   babelify = require('babelify'),
-  mkdirp = require('mkdirp'),
-  fs = require('fs'),
-  path = require('path');
+  source = require('vinyl-source-stream'),
+  buffer = require('vinyl-buffer'),
+  uglify = require('gulp-uglify'),
+  sourcemaps = require('gulp-sourcemaps');
 
 let prod = process.env.NODE_ENV === 'production';
 
 gulp.task('browserify', (done) => {
-  mkdirp('dist/js', function (err) {
-    if (err) {
-      gutil.log(err);
-    }
-    browserify({
-        entries: ['src/index'],
-        standalone: 'mvc',
-        debug: true
-      })
-      .transform(babelify, {
-        presets: ['env']
-      })
-      .bundle()
-      .on('error', gutil.log)
-      .pipe(fs.createWriteStream(path.join(__dirname, 'dist/js', 'index.js'), {
-        encoding: 'utf-8'
-      }));
-  });
-  return done();
+  browserify({
+      entries: 'src/index.js',
+      standalone: 'mvc',
+      debug: !prod
+    }).transform(babelify, {
+      presets: ['env']
+    })
+    .bundle()
+    .pipe(source('index.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({
+      loadMaps: true
+    }))
+    .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('dist'))
+    .on('end', () => {
+      done();
+    });
 });
 
-gulp.task('html', (done) => {
-  gulp.src('src/*.html')
-    .pipe(gulp.dest('dist'));
-  return done();
+gulp.task('demos', (done) => {
+  gulp.src(['dist/*', 'src/demo/*'])
+    .pipe(gulp.dest('demo')).on('end', () => {
+      done();
+    });
 });
 
-gulp.task('build', gulp.parallel(['browserify', 'html']));
+gulp.task('build', gulp.series(['browserify', 'demos']));
 
 gulp.task('default', gulp.series(['build']));
