@@ -2,7 +2,7 @@
   "name": "micro-mvc",
   "version": "1.0.0",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "dist/micro-mvc.js",
     "repository": {
     "type": "git",
     "url": "git@bitbucket.org:slugjuice/micro-mvc.git"

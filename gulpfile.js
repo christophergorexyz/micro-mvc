@@ -18,7 +18,7 @@ gulp.task('browserify', (done) => {
       presets: ['env']
     })
     .bundle()
-    .pipe(source('index.js'))
+    .pipe(source('micro-mvc.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({
       loadMaps: true

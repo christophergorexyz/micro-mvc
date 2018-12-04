@@ -1,0 +1,144 @@
+<!DOCUMENT html>
+<html>
+
+<head>
+  <title>MVC-Test</title>
+  <script type="text/javascript" src="./micro-mvc.js"></script>
+  <style>
+    .application-container form * {
+       box-sizing: border-box;
+    }
+    .application-container form {
+      width: 500px;
+    }
+    .application-container form,
+    .application-container canvas {
+      display:inline-block;
+      vertical-align: top;
+      border: 1px solid black;
+    }
+    .application-container form div {
+      width:100%;
+      font-size: 0;
+    }
+    .application-container form input,
+    .application-container form label {
+      font-size:initial;
+      display:inline-block;
+      width:50%;
+    }
+    .application-container form label {
+      text-align: right;
+      padding-right:1em;
+    }
+    .application-container form input {
+      text-align: left;
+      padding-left:1em;
+    }
+  </style>
+</head>
+
+<body class="application-container">
+  <div class="application-name" mvc-observes="name">
+  </div>
+  <form>
+    <div>
+      <label for="x">x:</label>
+      <input type="number" name="x" mvc-controls="x" mvc-observes="x" value="0" />
+    </div>
+    <div>
+      <label for="y">y:</label>
+      <input type="number" name="y" mvc-controls="y" mvc-observes="y" value="0" />
+    </div>
+  </form>
+  <canvas width="500px" height="500px" mvc-observes="x,y"></canvas>
+  <script type="text/javascript">
+    /*
+      In complex applications, Separation of Concerns (SoC) is critical in
+      manageability of files. Normally, I would have a separate file
+      for each Model, each View, and each Controller.
+
+      The entry point for a large application can be established as a
+      Controller which manipulates the model of the application. The
+      instantiation of additional Models, Views and Controllers can be
+      triggered by utilizing the event emitting functionality to observe
+      the application state.
+
+      For the purposes of this demonstration, I've opted to simplify things here.
+    */
+
+    //Begin Models
+    let Model = mvc.Model;
+
+    //Begin applicationModel
+    let application = {
+      name: 'Observability Tester',
+      version: '0.0.1'
+    };
+    let applicationModel = new Model(application);
+    //End applicationModel
+
+    //Begin coordinateModel
+    let coordinates = {
+      x: 0,
+      y: 0
+    };
+
+    let coordinateModel = new Model(coordinates);
+    //End coordinateModel
+    //End Models
+
+    //Begin Views
+    let View = mvc.View;
+    let applicationContainer = '.application-container';
+
+    //Begin CanvasView
+    //our canvas view observes the model for changes, then updates itself accordingly
+    let canvas = document.querySelector(`${applicationContainer} canvas`);
+    let context = canvas.getContext('2d');
+
+    function updateCanvas(e) {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.fillStyle = 'rgb(0,0,0)';
+      context.fillRect(coordinateModel.x - 5, coordinateModel.y - 5, 10, 10);
+    }
+
+    coordinateModel.addEventListener('mvc-propertychanged', updateCanvas);
+    coordinateModel.addEventListener('mvc-modelmodified', updateCanvas);
+    //End CanvasView
+
+
+    //Begin coordinateFormView
+    //A view that contains inputs which need to be observed for change
+    let coordinateFormElement = document.querySelector(`${applicationContainer} form`);
+    let coordinateFormView = new View(coordinateFormElement, coordinateModel);
+
+    coordinateModel.addEventListener('mvc-inputchanged', updateCanvas);
+    //End coordinateFormView view
+
+    //Begin applicationNameView
+    let applicationNameView = document.querySelector(`${applicationContainer} .application-name`);
+    //No need to use the View class because this is static, no inputs
+    applicationModel.addEventListener('mvc-propertychanged', (e) => applicationNameView.innerHTML = e.detail.value);
+    //End applicationNameView
+    //End Views
+
+    //Begin Controllers
+    //Begin canvas Controller
+    //The controller observes the view for events, then modifies the model in turn
+    canvas.addEventListener('mouseup', (e) => {
+      coordinateModel.modify({
+        x: e.clientX - canvas.offsetLeft,
+        y: e.clientY - canvas.offsetTop
+      });
+    });
+    //End canvas Controller
+
+    //Begin application Controller
+    //Make an assignment to trigger an event so an update occurs
+    applicationModel.name = applicationModel.name;
+    //End application Controller
+    //End Controllers
+  </script>
+</body>
+</html>
