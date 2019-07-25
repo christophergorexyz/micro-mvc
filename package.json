@@ -1,6 +1,6 @@
 {
     "name": "micro-mvc",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "I minimal MVC tool",
     "main": "lib/micro-mvc.js",
     "dependencies": {},
