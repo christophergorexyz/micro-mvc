@@ -1,8 +1,8 @@
 {
     "name": "micro-mvc",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "I minimal MVC tool",
-    "main": "lib/micro-mvc.js",
+    "main": "lib/index.js",
     "dependencies": {},
     "devDependencies": {
         "@babel/cli": "^7.5.0",
@@ -19,7 +19,7 @@
     },
     "scripts": {
         "test": "mocha",
-        "build": "esdoc && babel src/index.js -o lib/micro-mvc.js -s && browserify src/index.js -d -s mvc -t [ babelify ] | uglifyjs > dist/micro-mvc.min.js"
+        "build": "esdoc && babel src/ --out-dir lib/ -s && browserify src/index.js -d -s mvc -t [ babelify ] | uglifyjs > dist/micro-mvc.min.js"
     },
     "repository": {
         "type": "git",
