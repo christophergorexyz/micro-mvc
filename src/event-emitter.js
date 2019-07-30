@@ -1,6 +1,6 @@
 //MVCEventEmitter class slightly modified from
 //https://developer.mozilla.org/en-US/docs/Web/API/EventTarget#_Simple_implementation_of_EventTarget
-export default class MVCEventEmitter {
+export default class EventEmitter {
   constructor() {
     this.listeners = {};
   }

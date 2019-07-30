@@ -1,11 +1,11 @@
-import MVCEventEmitter from './event-emitter';
+import EventEmitter from './event-emitter';
 
 import {
   MVC_PROPERTY_CHANGED,
   MVC_MODEL_MODIFIED
 } from './config';
 
-export default class Model extends MVCEventEmitter {
+export default class Model extends EventEmitter {
   constructor(dataModel) {
     super();
     for (let k of Object.keys(dataModel)) {

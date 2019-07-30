@@ -8,9 +8,9 @@ import {
   MVC_INPUT_CHANGED
 } from './config';
 
-import MVCEventEmitter from './event-emitter';
+import EventEmitter from './event-emitter';
 
-export default class View extends MVCEventEmitter {
+export default class View extends EventEmitter {
   constructor(viewDOM, model) {
     super();
 

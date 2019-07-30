@@ -1,6 +1,6 @@
 {
     "name": "micro-mvc",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "I minimal MVC tool",
     "main": "lib/index.js",
     "dependencies": {},
@@ -23,7 +23,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@bitbucket.org/theOutLiar/micro-mvc.git"
+        "url": "git+ssh://git@bitbucket.org/slugjuice/micro-mvc.git"
     },
     "babel": {
         "presets": [
