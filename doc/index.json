@@ -271,7 +271,7 @@
     "__docId__": 19,
     "kind": "file",
     "name": "src/event-emitter.js",
-    "content": "//MVCEventEmitter class slightly modified from\r\n//https://developer.mozilla.org/en-US/docs/Web/API/EventTarget#_Simple_implementation_of_EventTarget\r\nexport default class EventEmitter {\r\n  constructor() {\r\n    this.listeners = {};\r\n  }\r\n\r\n  addEventListener(type, callback) {\r\n    if (!(type in this.listeners)) {\r\n      this.listeners[type] = [];\r\n    }\r\n    this.listeners[type].push(callback);\r\n  }\r\n\r\n  removeEventListener(type, callback) {\r\n    if (!(type in this.listeners)) {\r\n      return;\r\n    }\r\n    var stack = this.listeners[type];\r\n    for (var i = 0, l = stack.length; i < l; i++) {\r\n      if (stack[i] === callback) {\r\n        stack.splice(i, 1);\r\n        return;\r\n      }\r\n    }\r\n  }\r\n\r\n  dispatchEvent(event) {\r\n    if (!(event.type in this.listeners)) {\r\n      return true;\r\n    }\r\n    var stack = this.listeners[event.type].slice();\r\n\r\n    for (var i = 0, l = stack.length; i < l; i++) {\r\n      stack[i].call(this, event);\r\n    }\r\n    return !event.defaultPrevented;\r\n  }\r\n}\r\n",
+    "content": "//MVCEventEmitter class slightly modified from\r\n//https://developer.mozilla.org/en-US/docs/Web/API/EventTarget#_Simple_implementation_of_EventTarget\r\nexport default class EventEmitter {\r\n    constructor() {\r\n        this.listeners = {};\r\n    }\r\n\r\n    addEventListener(type, callback) {\r\n        if (!(type in this.listeners)) {\r\n            this.listeners[type] = [];\r\n        }\r\n        this.listeners[type].push(callback);\r\n    }\r\n\r\n    removeEventListener(type, callback) {\r\n        if (!(type in this.listeners)) {\r\n            return;\r\n        }\r\n        var stack = this.listeners[type];\r\n        for (var i = 0, l = stack.length; i < l; i++) {\r\n            if (stack[i] === callback) {\r\n                stack.splice(i, 1);\r\n                return;\r\n            }\r\n        }\r\n    }\r\n\r\n    dispatchEvent(event) {\r\n        if (!(event.type in this.listeners)) {\r\n            return true;\r\n        }\r\n        var stack = this.listeners[event.type].slice();\r\n\r\n        for (var i = 0, l = stack.length; i < l; i++) {\r\n            stack[i].call(this, event);\r\n        }\r\n        return !event.defaultPrevented;\r\n    }\r\n\r\n    listensFor(type) {\r\n        return !!this.listeners[type];\r\n    }\r\n\r\n    hasListener(type, callback) {\r\n        return !!this.listeners[type] ? this.listeners[type].indexOf(callback) >= 0 : false;\r\n    }\r\n}\r\n",
     "static": true,
     "longname": "C:/Users/Christopher/git/micro-mvc/src/event-emitter.js",
     "access": null,
@@ -364,6 +364,34 @@
   },
   {
     "__docId__": 26,
+    "kind": "method",
+    "name": "listensFor",
+    "memberof": "src/event-emitter.js~EventEmitter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/event-emitter.js~EventEmitter#listensFor",
+    "access": null,
+    "description": null,
+    "lineNumber": 40,
+    "undocument": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "method",
+    "name": "hasListener",
+    "memberof": "src/event-emitter.js~EventEmitter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/event-emitter.js~EventEmitter#hasListener",
+    "access": null,
+    "description": null,
+    "lineNumber": 44,
+    "undocument": true
+  },
+  {
+    "__docId__": 28,
     "kind": "file",
     "name": "src/index.js",
     "content": "import Model from './model';\nimport View from './view';\nimport EventEmitter from './event-emitter';\nimport ViewElement from './custom-elements/mvc-view';\n\nimport {\n    MVC_VIEW_ELEMENT\n} from './config';\nwindow.customElements.define(MVC_VIEW_ELEMENT, ViewElement);\n\nexport {\n    Model,\n    View,\n    EventEmitter\n};\n",
@@ -374,7 +402,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 27,
+    "__docId__": 29,
     "kind": "file",
     "name": "src/model.js",
     "content": "import EventEmitter from './event-emitter';\r\n\r\nimport {\r\n  MVC_PROPERTY_CHANGED,\r\n  MVC_MODEL_MODIFIED\r\n} from './config';\r\n\r\nexport default class Model extends EventEmitter {\r\n  constructor(dataModel) {\r\n    super();\r\n    for (let k of Object.keys(dataModel)) {\r\n\r\n      Object.defineProperty(this, k, {\r\n        innumerable: true,\r\n        get: () => {\r\n          return dataModel[k];\r\n        },\r\n        set: (val) => {\r\n          dataModel[k] = val;\r\n          let e = new CustomEvent(MVC_PROPERTY_CHANGED, {\r\n            detail: {\r\n              model: dataModel,\r\n              property: k,\r\n              value: val\r\n            }\r\n          });\r\n          this.dispatchEvent(e);\r\n        }\r\n      });\r\n    }\r\n\r\n    //TODO: determine whether access to the model is required\r\n    Object.defineProperty(this, 'model', {\r\n      innumerable: true,\r\n      get: () => {\r\n        return dataModel;\r\n      }\r\n    });\r\n\r\n    let modify = (val) => {\r\n      Object.assign(dataModel, val);\r\n      //In some situations, it may be too computationally\r\n      //intensive to make updates to all listeners to model,\r\n      //so providing a list of the properties and values that\r\n      //were changed and the raw val object as \"updates\" so\r\n      //that only the updates are necessary to process\r\n      let e = new CustomEvent(MVC_MODEL_MODIFIED, {\r\n        detail: {\r\n          updates: val,\r\n          model: dataModel,\r\n          properties: [Object.keys(val)],\r\n          values: [Object.values(val)]\r\n        }\r\n      });\r\n\r\n      this.dispatchEvent(e);\r\n    };\r\n\r\n    Object.defineProperty(this, 'modify', {\r\n      value: modify\r\n    });\r\n  }\r\n}\r\n",
@@ -385,7 +413,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 28,
+    "__docId__": 30,
     "kind": "class",
     "name": "Model",
     "memberof": "src/model.js",
@@ -404,7 +432,7 @@
     ]
   },
   {
-    "__docId__": 29,
+    "__docId__": 31,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/model.js~Model",
@@ -418,7 +446,7 @@
     "undocument": true
   },
   {
-    "__docId__": 30,
+    "__docId__": 32,
     "kind": "file",
     "name": "src/view.js",
     "content": "import {\r\n  MVC_CONTROLS,\r\n  MVC_OBSERVES,\r\n  MVC_RADIO_GROUP,\r\n  MVC_CHECK_GROUP,\r\n  MVC_PROPERTY_CHANGED,\r\n  MVC_MODEL_MODIFIED,\r\n  MVC_INPUT_CHANGED\r\n} from './config';\r\n\r\nimport EventEmitter from './event-emitter';\r\n\r\nexport default class View extends EventEmitter {\r\n  constructor(viewDOM, model) {\r\n    super();\r\n\r\n    let observers = viewDOM.querySelectorAll(`[${MVC_OBSERVES}]`);\r\n    let controls = viewDOM.querySelectorAll(`[${MVC_CONTROLS}]`);\r\n\r\n    let radioGroupObservers = viewDOM.querySelectorAll(`[${MVC_OBSERVES}][${MVC_RADIO_GROUP}]`);\r\n    let radioGroupControls = viewDOM.querySelectorAll(`[${MVC_CONTROLS}][${MVC_RADIO_GROUP}]`);\r\n\r\n    let checkGroupObservers = viewDOM.querySelectorAll(`[${MVC_OBSERVES}][${MVC_CHECK_GROUP}]`);\r\n    let checkGroupControls = viewDOM.querySelectorAll(`[${MVC_CONTROLS}][${MVC_CHECK_GROUP}]`);\r\n\r\n    radioGroupObservers = Array.prototype.map.call(radioGroupObservers, (o) => o);\r\n    radioGroupControls = Array.prototype.map.call(radioGroupControls, (c) => c);\r\n\r\n    checkGroupObservers = Array.prototype.map.call(checkGroupObservers, (o) => o);\r\n    checkGroupControls = Array.prototype.map.call(checkGroupControls, (c) => c);\r\n\r\n    function getInputValue(control) {\r\n      let inputType = control.getAttribute('type');\r\n\r\n      //most of these can just fall through to default, listing them exhaustively for thoroughness\r\n      switch (inputType) {\r\n        case 'button':\r\n        case 'file': //TODO: figure out if possible to handle file\r\n        case 'image':\r\n        case 'password': //you should never be allowed to control this programmatically\r\n        case 'reset':\r\n        case 'submit':\r\n          throw new TypeError(`Inputs of type ${inputType} cannot observe models`);\r\n          break;\r\n        case 'checkbox':\r\n          return control.checked;\r\n          break;\r\n          //case 'color': case 'date': case 'datetime-local': case 'email': case 'hidden': case 'month': case 'number': case 'radio': case 'range': case 'search': case 'tel': case 'text': case 'time': case 'url': case 'week':\r\n        default:\r\n          return control.value;\r\n          break;\r\n      }\r\n    }\r\n\r\n    function getControlValue(control) {\r\n      switch (control.tagName) {\r\n        case 'INPUT':\r\n          return getInputValue(control);\r\n        case 'FIELDSET':\r\n          return fieldsetGetAdapter.get(control)();\r\n        case 'SELECT':\r\n          return control.value;\r\n        default:\r\n          return control.innerHTML;\r\n      }\r\n    }\r\n\r\n    function updateInputValue(observer, value) {\r\n      let inputType = observer.getAttribute('type');\r\n      switch (inputType) {\r\n        case 'button':\r\n        case 'file': //TODO: figure out if possible to handle file\r\n        case 'image':\r\n        case 'reset':\r\n        case 'submit':\r\n          throw new TypeError(`Inputs of type ${inputType} do not have values`);\r\n          break;\r\n        case 'password': //you should never be allowed to control this programmatically\r\n          throw new TypeError(`Inputs of type ${inputType} may not be modified by controllers`);\r\n        case 'checkbox':\r\n          observer.checked = value;\r\n          break;\r\n          //TODO: implement errors for cases when types like numbers and ranges have min, max, and step attributes\r\n          //TODO: test dates\r\n          //case 'color': case 'date': case 'datetime-local': case 'email': case 'hidden': case 'month': case 'number': case 'radio': case 'range': case 'search': case 'tel': case 'text': case 'time': case 'url': case 'week':\r\n        default:\r\n          observer.value = value;\r\n          break;\r\n      }\r\n    }\r\n\r\n    function updateObserver(observer, value) {\r\n      switch (observer.tagName) {\r\n        case 'INPUT':\r\n          updateInputValue(observer, value);\r\n          break;\r\n        case 'FIELDSET':\r\n          if (observer.hasAttribute(MVC_RADIO_GROUP) && !fieldsetOptionsMap.get(observer).includes(value)) {\r\n            throw new RangeError(`The value supplied, ${value}, is not a valid option`);\r\n          } else if (observer.hasAttribute(MVC_CHECK_GROUP) && Object.keys(value).filter(v => !fieldsetOptionsMap.get(observer).includes(v)).length) {\r\n            throw new RangeError(`At least one of the values supplied, ${value}, is not a valid option`);\r\n          }\r\n          fieldsetSetAdapter.get(observer)(value);\r\n          break;\r\n        case 'SELECT':\r\n          if (!selectOptionsMap.get(observer).includes(value)) {\r\n            throw new RangeError(`The value supplied, ${value}, is not a valid option`);\r\n          }\r\n          observer.value = value;\r\n          break;\r\n        default:\r\n          observer.innerHTML = value;\r\n          break;\r\n      }\r\n    }\r\n\r\n    let fieldsetGetAdapter = new Map();\r\n    for (let i = 0; i < controls.length; i++) {\r\n      let addEventListeners = (c) => {\r\n        for (let val in controlledValues) {\r\n          c.addEventListener('change', (e) => {\r\n            let ce = new CustomEvent(MVC_INPUT_CHANGED, {\r\n              target: e.target,\r\n              detail: {\r\n                property: controlledValues[val],\r\n                value: getControlValue(controls[i])\r\n              }\r\n            });\r\n            model[controlledValues[val]] = getControlValue(controls[i]);\r\n            this.dispatchEvent(ce);\r\n          });\r\n        }\r\n      }\r\n\r\n      let controlledValues = controls[i].getAttribute(MVC_CONTROLS).split(',');\r\n      if (radioGroupControls.includes(controls[i])) {\r\n        let radioGroupName = controls[i].getAttribute(MVC_RADIO_GROUP);\r\n\r\n        let radioForm = controls[i].closest('form');\r\n        let nodeList = radioForm ? radioForm.elements[radioGroupName] : document.getElementsByName(radioGroupName);\r\n\r\n        fieldsetGetAdapter.set(controls[i], (radioForm ?\r\n          () => nodeList.value :\r\n          () => controls[i].querySelector(':checked').value\r\n        ));\r\n\r\n        nodeList.forEach((n) => {\r\n          addEventListeners(n);\r\n        });\r\n      } else if (checkGroupControls.includes(controls[i])) {\r\n        let nodeList = controls[i].querySelectorAll('[type=\"checkbox\"]');\r\n\r\n        fieldsetGetAdapter.set(controls[i], () => {\r\n          let result = {};\r\n          nodeList.forEach((n) => {\r\n            result[n.value] = n.checked;\r\n          });\r\n          return result;\r\n        });\r\n\r\n        nodeList.forEach((n) => {\r\n          addEventListeners(n);\r\n        });\r\n      } else {\r\n        addEventListeners(controls[i]);\r\n      }\r\n    }\r\n\r\n    let fieldsetOptionsMap = new Map();\r\n    let selectOptionsMap = new Map();\r\n    let fieldsetSetAdapter = new Map();\r\n    for (let i = 0; i < observers.length; i++) {\r\n      if (radioGroupObservers.includes(observers[i])) {\r\n        let radioGroupName = observers[i].getAttribute(MVC_RADIO_GROUP);\r\n\r\n        let radioForm = observers[i].closest('form');\r\n        let nodeList = radioForm ? radioForm.elements[radioGroupName] : document.getElementsByName(radioGroupName);\r\n        fieldsetSetAdapter.set(observers[i], (radioForm ?\r\n          (val) => nodeList.value = val :\r\n          (val) => nodeList.forEach((n) => {\r\n            n.checked = false;\r\n            if (n.value === val) {\r\n              n.checked = true;\r\n            }\r\n          })));\r\n        let options = [];\r\n        nodeList.forEach((o) => {\r\n          options.push(o.value);\r\n        });\r\n        fieldsetOptionsMap.set(observers[i], options)\r\n      } else if (checkGroupObservers.includes(observers[i])) {\r\n        let nodeList = observers[i].querySelectorAll('[type=\"checkbox\"]');\r\n        fieldsetSetAdapter.set(observers[i], (val) => {\r\n          nodeList.forEach((n) => {\r\n            n.checked = val[n.value];\r\n          });\r\n        });\r\n        let options = [];\r\n        nodeList.forEach((o) => {\r\n          options.push(o.value);\r\n        });\r\n        fieldsetOptionsMap.set(observers[i], options);\r\n      } else if (observers[i].tagName === 'SELECT') {\r\n        let options = [];\r\n        observers[i].querySelectorAll('option').forEach((o) => {\r\n          options.push(o.value);\r\n        });\r\n        selectOptionsMap.set(observers[i], options);\r\n      }\r\n\r\n      let observedValues = observers[i].getAttribute(MVC_OBSERVES).split(',');\r\n      for (let val in observedValues) {\r\n        model.addEventListener(MVC_PROPERTY_CHANGED, (e) => {\r\n          if (observedValues[val] === e.detail.property && e.target !== observers[i]) {\r\n            updateObserver(observers[i], e.detail.value);\r\n          }\r\n        });\r\n      }\r\n    }\r\n\r\n    model.addEventListener(MVC_MODEL_MODIFIED, (e) => {\r\n      for (let i = 0; i < observers.length; i++) {\r\n        let observedValues = observers[i].getAttribute(MVC_OBSERVES).split(',');\r\n        for (let val in observedValues) {\r\n          let updatedVal = e.detail.updates[observedValues[val]];\r\n          if (updatedVal) {\r\n            updateObserver(observers[i], updatedVal);\r\n          }\r\n        }\r\n      }\r\n    });\r\n  }\r\n}\r\n",
@@ -429,7 +457,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 31,
+    "__docId__": 33,
     "kind": "class",
     "name": "View",
     "memberof": "src/view.js",
@@ -448,7 +476,7 @@
     ]
   },
   {
-    "__docId__": 32,
+    "__docId__": 34,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/view.js~View",
@@ -471,7 +499,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n    \"name\": \"micro-mvc\",\n    \"version\": \"1.0.1\",\n    \"description\": \"I minimal MVC tool\",\n    \"main\": \"lib/index.js\",\n    \"dependencies\": {},\n    \"devDependencies\": {\n        \"@babel/cli\": \"^7.5.0\",\n        \"@babel/core\": \"^7.5.4\",\n        \"@babel/plugin-transform-runtime\": \"^7.5.0\",\n        \"@babel/preset-env\": \"^7.5.4\",\n        \"@babel/runtime\": \"^7.5.4\",\n        \"babelify\": \"^10.0.0\",\n        \"browserify\": \"^16.3.0\",\n        \"esdoc\": \"^1.1.0\",\n        \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n        \"mocha\": \"^6.1.4\",\n        \"uglify-js\": \"^3.6.0\"\n    },\n    \"scripts\": {\n        \"test\": \"mocha\",\n        \"build\": \"esdoc && babel src/ --out-dir lib/ -s && browserify src/index.js -d -s mvc -t [ babelify ] | uglifyjs > dist/micro-mvc.min.js\"\n    },\n    \"repository\": {\n        \"type\": \"git\",\n        \"url\": \"git+ssh://git@bitbucket.org/slugjuice/micro-mvc.git\"\n    },\n    \"babel\": {\n        \"presets\": [\n            \"@babel/env\"\n        ],\n        \"plugins\": [\n            \"module:@babel/plugin-transform-runtime\"\n        ]\n    },\n    \"esdoc\": {\n        \"source\": \"./src\",\n        \"destination\": \"./doc\",\n        \"plugins\": [\n            {\n                \"name\": \"esdoc-ecmascript-proposal-plugin\",\n                \"option\": {\n                    \"all\": true\n                }\n            }\n        ]\n    },\n    \"author\": \"Christopher J Gore\",\n    \"license\": \"MIT\",\n    \"homepage\": \"https://bitbucket.org/theOutLiar/micro-mvc#readme\"\n}\n",
+    "content": "{\n    \"name\": \"micro-mvc\",\n    \"version\": \"1.2.0\",\n    \"description\": \"I minimal MVC tool\",\n    \"main\": \"lib/index.js\",\n    \"dependencies\": {},\n    \"devDependencies\": {\n        \"@babel/cli\": \"^7.5.0\",\n        \"@babel/core\": \"^7.5.4\",\n        \"@babel/plugin-transform-runtime\": \"^7.5.0\",\n        \"@babel/preset-env\": \"^7.5.4\",\n        \"@babel/runtime\": \"^7.5.4\",\n        \"babelify\": \"^10.0.0\",\n        \"browserify\": \"^16.3.0\",\n        \"esdoc\": \"^1.1.0\",\n        \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n        \"mocha\": \"^6.1.4\",\n        \"uglify-js\": \"^3.6.0\"\n    },\n    \"scripts\": {\n        \"test\": \"mocha\",\n        \"build\": \"esdoc && babel src/ --out-dir lib/ -s && browserify src/index.js -d -s mvc -t [ babelify ] | uglifyjs > dist/micro-mvc.min.js\"\n    },\n    \"repository\": {\n        \"type\": \"git\",\n        \"url\": \"git+ssh://git@bitbucket.org/slugjuice/micro-mvc.git\"\n    },\n    \"babel\": {\n        \"presets\": [\n            \"@babel/env\"\n        ],\n        \"plugins\": [\n            \"module:@babel/plugin-transform-runtime\"\n        ]\n    },\n    \"esdoc\": {\n        \"source\": \"./src\",\n        \"destination\": \"./doc\",\n        \"plugins\": [\n            {\n                \"name\": \"esdoc-ecmascript-proposal-plugin\",\n                \"option\": {\n                    \"all\": true\n                }\n            }\n        ]\n    },\n    \"author\": \"Christopher J Gore\",\n    \"license\": \"MIT\",\n    \"homepage\": \"https://bitbucket.org/theOutLiar/micro-mvc#readme\"\n}\n",
     "longname": "C:\\Users\\Christopher\\git\\micro-mvc\\package.json",
     "name": "package.json",
     "static": true,

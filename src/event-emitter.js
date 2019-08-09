@@ -1,39 +1,47 @@
 //MVCEventEmitter class slightly modified from
 //https://developer.mozilla.org/en-US/docs/Web/API/EventTarget#_Simple_implementation_of_EventTarget
 export default class EventEmitter {
-  constructor() {
-    this.listeners = {};
-  }
+    constructor() {
+        this.listeners = {};
+    }
 
-  addEventListener(type, callback) {
-    if (!(type in this.listeners)) {
-      this.listeners[type] = [];
+    addEventListener(type, callback) {
+        if (!(type in this.listeners)) {
+            this.listeners[type] = [];
+        }
+        this.listeners[type].push(callback);
     }
-    this.listeners[type].push(callback);
-  }
 
-  removeEventListener(type, callback) {
-    if (!(type in this.listeners)) {
-      return;
+    removeEventListener(type, callback) {
+        if (!(type in this.listeners)) {
+            return;
+        }
+        var stack = this.listeners[type];
+        for (var i = 0, l = stack.length; i < l; i++) {
+            if (stack[i] === callback) {
+                stack.splice(i, 1);
+                return;
+            }
+        }
     }
-    var stack = this.listeners[type];
-    for (var i = 0, l = stack.length; i < l; i++) {
-      if (stack[i] === callback) {
-        stack.splice(i, 1);
-        return;
-      }
-    }
-  }
 
-  dispatchEvent(event) {
-    if (!(event.type in this.listeners)) {
-      return true;
-    }
-    var stack = this.listeners[event.type].slice();
+    dispatchEvent(event) {
+        if (!(event.type in this.listeners)) {
+            return true;
+        }
+        var stack = this.listeners[event.type].slice();
 
-    for (var i = 0, l = stack.length; i < l; i++) {
-      stack[i].call(this, event);
+        for (var i = 0, l = stack.length; i < l; i++) {
+            stack[i].call(this, event);
+        }
+        return !event.defaultPrevented;
     }
-    return !event.defaultPrevented;
-  }
+
+    listensFor(type) {
+        return !!this.listeners[type];
+    }
+
+    hasListener(type, callback) {
+        return !!this.listeners[type] ? this.listeners[type].indexOf(callback) >= 0 : false;
+    }
 }
