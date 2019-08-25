@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">Home | micro-mvc</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A minimal MVC tool"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="micro-mvc"><meta property="twitter:description" content="A minimal MVC tool"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/theOutLiar/micro-mvc"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/event-emitter.js~EventEmitter.html">EventEmitter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/model.js~Model.html">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/view.js~View.html">View</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_CHECK_GROUP">MVC_CHECK_GROUP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_CONTROLS">MVC_CONTROLS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_INPUT_CHANGED">MVC_INPUT_CHANGED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_MODEL_MODIFIED">MVC_MODEL_MODIFIED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_OBSERVES">MVC_OBSERVES</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_PROPERTY_CHANGED">MVC_PROPERTY_CHANGED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_RADIO_GROUP">MVC_RADIO_GROUP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_VIEW_ELEMENT">MVC_VIEW_ELEMENT</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#custom-elements">custom-elements</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/custom-elements/mvc-view.js~MVCView.html">MVCView</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="micro-mvc">micro-mvc</h1><p>This package exposes two very basic classes that can be used create reactive MVC interfaces. </p>
+<p>Models are created from basic objects. Simply create an object with the desired properties, and instantiate the Model class with the object as the argument in the constructor: </p>
+<p>JavaScript </p>
+<pre><code><code class="source-code prettyprint">let Model = mvc.Model;
+
+let application = {
+    name: &apos;My Application&apos;,
+    version: &apos;1.0.0&apos;
+};
+
+let applicationModel = new Model(application);</code>
+</code></pre><p>The <code>applicationModel</code> above will encapsulate the raw object and provide getters and setters for its properites. Setters for the properties will trigger events for which a View listens. </p>
+<p>Views are established from a DOM object and existing models. It is assumed that the DOM is left unfilled, and upon construction, the View with force the model to emit an event that fills in all the data: </p>
+<p>HTML </p>
+<pre><code><code class="source-code prettyprint">&lt;div class=&quot;application-container&quot;&gt;
+    &lt;p&gt;&lt;span mvc-observes=&quot;name&quot;&gt;&lt;/span&gt; &lt;span mvc-observes=&quot;version&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;</code>
+</code></pre><p>JavaScript </p>
+<pre><code><code class="source-code prettyprint">let View = mvc.View;
+
+let applicationContainer = document.querySelector(&apos;.application-container&apos;);
+let applicationView = new View(applicationContainer, applicationModel);</code>
+</code></pre><p><a href="https://theoutliar.github.io/micro-mvc/demo/">View the demo here</a></p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

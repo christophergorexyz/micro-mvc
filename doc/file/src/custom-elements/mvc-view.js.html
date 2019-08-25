@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/custom-elements/mvc-view.js | micro-mvc</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A minimal MVC tool"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="micro-mvc"><meta property="twitter:description" content="A minimal MVC tool"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/theOutLiar/micro-mvc"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/event-emitter.js~EventEmitter.html">EventEmitter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/model.js~Model.html">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/view.js~View.html">View</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_CHECK_GROUP">MVC_CHECK_GROUP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_CONTROLS">MVC_CONTROLS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_INPUT_CHANGED">MVC_INPUT_CHANGED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_MODEL_MODIFIED">MVC_MODEL_MODIFIED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_OBSERVES">MVC_OBSERVES</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_PROPERTY_CHANGED">MVC_PROPERTY_CHANGED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_RADIO_GROUP">MVC_RADIO_GROUP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_VIEW_ELEMENT">MVC_VIEW_ELEMENT</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#custom-elements">custom-elements</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/custom-elements/mvc-view.js~MVCView.html">MVCView</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/custom-elements/mvc-view.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import View from &apos;../view&apos;;
+import Model from &apos;../model&apos;;
+
+/**
+ * This class is a custom HTMLElement that provides some syntactic sugar for setting up Views and Models
+ * @experimental This class is an experimental featue, and may not be valid in the future
+ */
+export default class MVCView extends HTMLElement {
+    constructor() {
+        super();
+    }
+
+    /**
+     * Adds a form around the content slot
+     */
+    connectedCallback() {
+        /**
+         * @type {object}
+         */
+        this._shadow = this.attachShadow({
+            mode: &apos;open&apos;
+        });
+        let formNode = document.createElement(&apos;form&apos;);
+        let slot = document.createElement(&apos;slot&apos;);
+        formNode.append(slot);
+        this._shadow.appendChild(formNode);
+    }
+
+    /**
+     * Return the model for the view. May be null if model has not been supplied yet.
+     * @type {object}
+     */
+    get model() {
+        return this._model;
+    }
+
+    /**
+     * Set the model the view will observe and modify.
+     * @param {object} model An object to be turned into an MVC Model
+     */
+    set model(model) {
+        if (this._model) {
+            throw new Error(&apos;The model may only be set once.&apos;);
+        }
+
+        /**
+         * The Model instance encapsulated by this element
+         * @type {object}
+         */
+        this._model = new Model(model);
+
+        /**
+         * The View instance encapsulated by this element
+         * @type {object}
+         */
+        this._view = new View(this, this._model);
+    }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 525,
+  "end": 1312,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 14,
+      "line": 43,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 525,
+    "end": 1312,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 14,
+        "line": 43,
         "column": 0
       }
     },
@@ -96,19 +96,37 @@
             }
           }
         ],
-        "kind": "const"
+        "kind": "const",
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom attribute which directs the view to observe a particular value of the model\r\n ",
+            "start": 29,
+            "end": 126,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 5,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 29,
-        "end": 82,
+        "start": 128,
+        "end": 181,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 6,
             "column": 0
           },
           "end": {
-            "line": 3,
+            "line": 6,
             "column": 53
           }
         },
@@ -116,76 +134,77 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 36,
-          "end": 82,
+          "start": 135,
+          "end": 181,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 6,
               "column": 7
             },
             "end": {
-              "line": 3,
+              "line": 6,
               "column": 53
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 42,
-              "end": 81,
+              "start": 141,
+              "end": 180,
               "loc": {
                 "start": {
-                  "line": 3,
+                  "line": 6,
                   "column": 13
                 },
                 "end": {
-                  "line": 3,
+                  "line": 6,
                   "column": 52
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 42,
-                "end": 54,
+                "start": 141,
+                "end": 153,
                 "loc": {
                   "start": {
-                    "line": 3,
+                    "line": 6,
                     "column": 13
                   },
                   "end": {
-                    "line": 3,
+                    "line": 6,
                     "column": 25
                   },
                   "identifierName": "MVC_OBSERVES"
                 },
-                "name": "MVC_OBSERVES"
+                "name": "MVC_OBSERVES",
+                "leadingComments": null
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 57,
-                "end": 81,
+                "start": 156,
+                "end": 180,
                 "loc": {
                   "start": {
-                    "line": 3,
+                    "line": 6,
                     "column": 28
                   },
                   "end": {
-                    "line": 3,
+                    "line": 6,
                     "column": 52
                   }
                 },
                 "expressions": [
                   {
                     "type": "Identifier",
-                    "start": 60,
-                    "end": 70,
+                    "start": 159,
+                    "end": 169,
                     "loc": {
                       "start": {
-                        "line": 3,
+                        "line": 6,
                         "column": 31
                       },
                       "end": {
-                        "line": 3,
+                        "line": 6,
                         "column": 41
                       },
                       "identifierName": "APP_PREFIX"
@@ -196,15 +215,15 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 58,
-                    "end": 58,
+                    "start": 157,
+                    "end": 157,
                     "loc": {
                       "start": {
-                        "line": 3,
+                        "line": 6,
                         "column": 29
                       },
                       "end": {
-                        "line": 3,
+                        "line": 6,
                         "column": 29
                       }
                     },
@@ -216,15 +235,15 @@
                   },
                   {
                     "type": "TemplateElement",
-                    "start": 71,
-                    "end": 80,
+                    "start": 170,
+                    "end": 179,
                     "loc": {
                       "start": {
-                        "line": 3,
+                        "line": 6,
                         "column": 42
                       },
                       "end": {
-                        "line": 3,
+                        "line": 6,
                         "column": 51
                       }
                     },
@@ -235,25 +254,96 @@
                     "tail": true
                   }
                 ]
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom attribute which directs the view to observe a particular value of the model\r\n ",
+              "start": 29,
+              "end": 126,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 0
+                },
+                "end": {
+                  "line": 5,
+                  "column": 3
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom attribute which directs the view to update a particular value of the model\r\n ",
+              "start": 185,
+              "end": 281,
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 0
+                },
+                "end": {
+                  "line": 10,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom attribute which directs the view to observe a particular value of the model\r\n ",
+            "start": 29,
+            "end": 126,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 5,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom attribute which directs the view to update a particular value of the model\r\n ",
+            "start": 185,
+            "end": 281,
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 0
+              },
+              "end": {
+                "line": 10,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 84,
-        "end": 137,
+        "start": 283,
+        "end": 336,
         "loc": {
           "start": {
-            "line": 4,
+            "line": 11,
             "column": 0
           },
           "end": {
-            "line": 4,
+            "line": 11,
             "column": 53
           }
         },
@@ -261,76 +351,77 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 91,
-          "end": 137,
+          "start": 290,
+          "end": 336,
           "loc": {
             "start": {
-              "line": 4,
+              "line": 11,
               "column": 7
             },
             "end": {
-              "line": 4,
+              "line": 11,
               "column": 53
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 97,
-              "end": 136,
+              "start": 296,
+              "end": 335,
               "loc": {
                 "start": {
-                  "line": 4,
+                  "line": 11,
                   "column": 13
                 },
                 "end": {
-                  "line": 4,
+                  "line": 11,
                   "column": 52
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 97,
-                "end": 109,
+                "start": 296,
+                "end": 308,
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 11,
                     "column": 13
                   },
                   "end": {
-                    "line": 4,
+                    "line": 11,
                     "column": 25
                   },
                   "identifierName": "MVC_CONTROLS"
                 },
-                "name": "MVC_CONTROLS"
+                "name": "MVC_CONTROLS",
+                "leadingComments": null
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 112,
-                "end": 136,
+                "start": 311,
+                "end": 335,
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 11,
                     "column": 28
                   },
                   "end": {
-                    "line": 4,
+                    "line": 11,
                     "column": 52
                   }
                 },
                 "expressions": [
                   {
                     "type": "Identifier",
-                    "start": 115,
-                    "end": 125,
+                    "start": 314,
+                    "end": 324,
                     "loc": {
                       "start": {
-                        "line": 4,
+                        "line": 11,
                         "column": 31
                       },
                       "end": {
-                        "line": 4,
+                        "line": 11,
                         "column": 41
                       },
                       "identifierName": "APP_PREFIX"
@@ -341,15 +432,15 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 113,
-                    "end": 113,
+                    "start": 312,
+                    "end": 312,
                     "loc": {
                       "start": {
-                        "line": 4,
+                        "line": 11,
                         "column": 29
                       },
                       "end": {
-                        "line": 4,
+                        "line": 11,
                         "column": 29
                       }
                     },
@@ -361,15 +452,15 @@
                   },
                   {
                     "type": "TemplateElement",
-                    "start": 126,
-                    "end": 135,
+                    "start": 325,
+                    "end": 334,
                     "loc": {
                       "start": {
-                        "line": 4,
+                        "line": 11,
                         "column": 42
                       },
                       "end": {
-                        "line": 4,
+                        "line": 11,
                         "column": 51
                       }
                     },
@@ -380,25 +471,96 @@
                     "tail": true
                   }
                 ]
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom attribute which directs the view to update a particular value of the model\r\n ",
+              "start": 185,
+              "end": 281,
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 0
+                },
+                "end": {
+                  "line": 10,
+                  "column": 3
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom attribute which ensures that events are triggered properly for radio inputs\r\n ",
+              "start": 340,
+              "end": 437,
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 0
+                },
+                "end": {
+                  "line": 15,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom attribute which directs the view to update a particular value of the model\r\n ",
+            "start": 185,
+            "end": 281,
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 0
+              },
+              "end": {
+                "line": 10,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom attribute which ensures that events are triggered properly for radio inputs\r\n ",
+            "start": 340,
+            "end": 437,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 139,
-        "end": 198,
+        "start": 439,
+        "end": 498,
         "loc": {
           "start": {
-            "line": 5,
+            "line": 16,
             "column": 0
           },
           "end": {
-            "line": 5,
+            "line": 16,
             "column": 59
           }
         },
@@ -406,76 +568,77 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 146,
-          "end": 198,
+          "start": 446,
+          "end": 498,
           "loc": {
             "start": {
-              "line": 5,
+              "line": 16,
               "column": 7
             },
             "end": {
-              "line": 5,
+              "line": 16,
               "column": 59
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 152,
-              "end": 197,
+              "start": 452,
+              "end": 497,
               "loc": {
                 "start": {
-                  "line": 5,
+                  "line": 16,
                   "column": 13
                 },
                 "end": {
-                  "line": 5,
+                  "line": 16,
                   "column": 58
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 152,
-                "end": 167,
+                "start": 452,
+                "end": 467,
                 "loc": {
                   "start": {
-                    "line": 5,
+                    "line": 16,
                     "column": 13
                   },
                   "end": {
-                    "line": 5,
+                    "line": 16,
                     "column": 28
                   },
                   "identifierName": "MVC_RADIO_GROUP"
                 },
-                "name": "MVC_RADIO_GROUP"
+                "name": "MVC_RADIO_GROUP",
+                "leadingComments": null
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 170,
-                "end": 197,
+                "start": 470,
+                "end": 497,
                 "loc": {
                   "start": {
-                    "line": 5,
+                    "line": 16,
                     "column": 31
                   },
                   "end": {
-                    "line": 5,
+                    "line": 16,
                     "column": 58
                   }
                 },
                 "expressions": [
                   {
                     "type": "Identifier",
-                    "start": 173,
-                    "end": 183,
+                    "start": 473,
+                    "end": 483,
                     "loc": {
                       "start": {
-                        "line": 5,
+                        "line": 16,
                         "column": 34
                       },
                       "end": {
-                        "line": 5,
+                        "line": 16,
                         "column": 44
                       },
                       "identifierName": "APP_PREFIX"
@@ -486,15 +649,15 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 171,
-                    "end": 171,
+                    "start": 471,
+                    "end": 471,
                     "loc": {
                       "start": {
-                        "line": 5,
+                        "line": 16,
                         "column": 32
                       },
                       "end": {
-                        "line": 5,
+                        "line": 16,
                         "column": 32
                       }
                     },
@@ -506,15 +669,15 @@
                   },
                   {
                     "type": "TemplateElement",
-                    "start": 184,
-                    "end": 196,
+                    "start": 484,
+                    "end": 496,
                     "loc": {
                       "start": {
-                        "line": 5,
+                        "line": 16,
                         "column": 45
                       },
                       "end": {
-                        "line": 5,
+                        "line": 16,
                         "column": 57
                       }
                     },
@@ -525,25 +688,96 @@
                     "tail": true
                   }
                 ]
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom attribute which ensures that events are triggered properly for radio inputs\r\n ",
+              "start": 340,
+              "end": 437,
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 0
+                },
+                "end": {
+                  "line": 15,
+                  "column": 3
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom attribute which ensures that events are triggered properly for checkbox inputs\r\n ",
+              "start": 502,
+              "end": 602,
+              "loc": {
+                "start": {
+                  "line": 18,
+                  "column": 0
+                },
+                "end": {
+                  "line": 20,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom attribute which ensures that events are triggered properly for radio inputs\r\n ",
+            "start": 340,
+            "end": 437,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom attribute which ensures that events are triggered properly for checkbox inputs\r\n ",
+            "start": 502,
+            "end": 602,
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 0
+              },
+              "end": {
+                "line": 20,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 200,
-        "end": 259,
+        "start": 604,
+        "end": 663,
         "loc": {
           "start": {
-            "line": 6,
+            "line": 21,
             "column": 0
           },
           "end": {
-            "line": 6,
+            "line": 21,
             "column": 59
           }
         },
@@ -551,76 +785,77 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 207,
-          "end": 259,
+          "start": 611,
+          "end": 663,
           "loc": {
             "start": {
-              "line": 6,
+              "line": 21,
               "column": 7
             },
             "end": {
-              "line": 6,
+              "line": 21,
               "column": 59
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 213,
-              "end": 258,
+              "start": 617,
+              "end": 662,
               "loc": {
                 "start": {
-                  "line": 6,
+                  "line": 21,
                   "column": 13
                 },
                 "end": {
-                  "line": 6,
+                  "line": 21,
                   "column": 58
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 213,
-                "end": 228,
+                "start": 617,
+                "end": 632,
                 "loc": {
                   "start": {
-                    "line": 6,
+                    "line": 21,
                     "column": 13
                   },
                   "end": {
-                    "line": 6,
+                    "line": 21,
                     "column": 28
                   },
                   "identifierName": "MVC_CHECK_GROUP"
                 },
-                "name": "MVC_CHECK_GROUP"
+                "name": "MVC_CHECK_GROUP",
+                "leadingComments": null
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 231,
-                "end": 258,
+                "start": 635,
+                "end": 662,
                 "loc": {
                   "start": {
-                    "line": 6,
+                    "line": 21,
                     "column": 31
                   },
                   "end": {
-                    "line": 6,
+                    "line": 21,
                     "column": 58
                   }
                 },
                 "expressions": [
                   {
                     "type": "Identifier",
-                    "start": 234,
-                    "end": 244,
+                    "start": 638,
+                    "end": 648,
                     "loc": {
                       "start": {
-                        "line": 6,
+                        "line": 21,
                         "column": 34
                       },
                       "end": {
-                        "line": 6,
+                        "line": 21,
                         "column": 44
                       },
                       "identifierName": "APP_PREFIX"
@@ -631,15 +866,15 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 232,
-                    "end": 232,
+                    "start": 636,
+                    "end": 636,
                     "loc": {
                       "start": {
-                        "line": 6,
+                        "line": 21,
                         "column": 32
                       },
                       "end": {
-                        "line": 6,
+                        "line": 21,
                         "column": 32
                       }
                     },
@@ -651,15 +886,15 @@
                   },
                   {
                     "type": "TemplateElement",
-                    "start": 245,
-                    "end": 257,
+                    "start": 649,
+                    "end": 661,
                     "loc": {
                       "start": {
-                        "line": 6,
+                        "line": 21,
                         "column": 45
                       },
                       "end": {
-                        "line": 6,
+                        "line": 21,
                         "column": 57
                       }
                     },
@@ -670,25 +905,96 @@
                     "tail": true
                   }
                 ]
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom attribute which ensures that events are triggered properly for checkbox inputs\r\n ",
+              "start": 502,
+              "end": 602,
+              "loc": {
+                "start": {
+                  "line": 18,
+                  "column": 0
+                },
+                "end": {
+                  "line": 20,
+                  "column": 3
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom event name for when multiple properties of a model have been modified\r\n ",
+              "start": 667,
+              "end": 758,
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "column": 0
+                },
+                "end": {
+                  "line": 25,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom attribute which ensures that events are triggered properly for checkbox inputs\r\n ",
+            "start": 502,
+            "end": 602,
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 0
+              },
+              "end": {
+                "line": 20,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom event name for when multiple properties of a model have been modified\r\n ",
+            "start": 667,
+            "end": 758,
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 0
+              },
+              "end": {
+                "line": 25,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 263,
-        "end": 328,
+        "start": 760,
+        "end": 825,
         "loc": {
           "start": {
-            "line": 8,
+            "line": 26,
             "column": 0
           },
           "end": {
-            "line": 8,
+            "line": 26,
             "column": 65
           }
         },
@@ -696,76 +1002,77 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 270,
-          "end": 328,
+          "start": 767,
+          "end": 825,
           "loc": {
             "start": {
-              "line": 8,
+              "line": 26,
               "column": 7
             },
             "end": {
-              "line": 8,
+              "line": 26,
               "column": 65
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 276,
-              "end": 327,
+              "start": 773,
+              "end": 824,
               "loc": {
                 "start": {
-                  "line": 8,
+                  "line": 26,
                   "column": 13
                 },
                 "end": {
-                  "line": 8,
+                  "line": 26,
                   "column": 64
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 276,
-                "end": 294,
+                "start": 773,
+                "end": 791,
                 "loc": {
                   "start": {
-                    "line": 8,
+                    "line": 26,
                     "column": 13
                   },
                   "end": {
-                    "line": 8,
+                    "line": 26,
                     "column": 31
                   },
                   "identifierName": "MVC_MODEL_MODIFIED"
                 },
-                "name": "MVC_MODEL_MODIFIED"
+                "name": "MVC_MODEL_MODIFIED",
+                "leadingComments": null
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 297,
-                "end": 327,
+                "start": 794,
+                "end": 824,
                 "loc": {
                   "start": {
-                    "line": 8,
+                    "line": 26,
                     "column": 34
                   },
                   "end": {
-                    "line": 8,
+                    "line": 26,
                     "column": 64
                   }
                 },
                 "expressions": [
                   {
                     "type": "Identifier",
-                    "start": 300,
-                    "end": 310,
+                    "start": 797,
+                    "end": 807,
                     "loc": {
                       "start": {
-                        "line": 8,
+                        "line": 26,
                         "column": 37
                       },
                       "end": {
-                        "line": 8,
+                        "line": 26,
                         "column": 47
                       },
                       "identifierName": "APP_PREFIX"
@@ -776,15 +1083,15 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 298,
-                    "end": 298,
+                    "start": 795,
+                    "end": 795,
                     "loc": {
                       "start": {
-                        "line": 8,
+                        "line": 26,
                         "column": 35
                       },
                       "end": {
-                        "line": 8,
+                        "line": 26,
                         "column": 35
                       }
                     },
@@ -796,15 +1103,15 @@
                   },
                   {
                     "type": "TemplateElement",
-                    "start": 311,
-                    "end": 326,
+                    "start": 808,
+                    "end": 823,
                     "loc": {
                       "start": {
-                        "line": 8,
+                        "line": 26,
                         "column": 48
                       },
                       "end": {
-                        "line": 8,
+                        "line": 26,
                         "column": 63
                       }
                     },
@@ -815,25 +1122,96 @@
                     "tail": true
                   }
                 ]
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom event name for when multiple properties of a model have been modified\r\n ",
+              "start": 667,
+              "end": 758,
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "column": 0
+                },
+                "end": {
+                  "line": 25,
+                  "column": 3
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom event name for when a single property of a model has been modified\r\n ",
+              "start": 829,
+              "end": 917,
+              "loc": {
+                "start": {
+                  "line": 28,
+                  "column": 0
+                },
+                "end": {
+                  "line": 30,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom event name for when multiple properties of a model have been modified\r\n ",
+            "start": 667,
+            "end": 758,
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 0
+              },
+              "end": {
+                "line": 25,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom event name for when a single property of a model has been modified\r\n ",
+            "start": 829,
+            "end": 917,
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 0
+              },
+              "end": {
+                "line": 30,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 330,
-        "end": 399,
+        "start": 919,
+        "end": 988,
         "loc": {
           "start": {
-            "line": 9,
+            "line": 31,
             "column": 0
           },
           "end": {
-            "line": 9,
+            "line": 31,
             "column": 69
           }
         },
@@ -841,76 +1219,77 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 337,
-          "end": 399,
+          "start": 926,
+          "end": 988,
           "loc": {
             "start": {
-              "line": 9,
+              "line": 31,
               "column": 7
             },
             "end": {
-              "line": 9,
+              "line": 31,
               "column": 69
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 343,
-              "end": 398,
+              "start": 932,
+              "end": 987,
               "loc": {
                 "start": {
-                  "line": 9,
+                  "line": 31,
                   "column": 13
                 },
                 "end": {
-                  "line": 9,
+                  "line": 31,
                   "column": 68
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 343,
-                "end": 363,
+                "start": 932,
+                "end": 952,
                 "loc": {
                   "start": {
-                    "line": 9,
+                    "line": 31,
                     "column": 13
                   },
                   "end": {
-                    "line": 9,
+                    "line": 31,
                     "column": 33
                   },
                   "identifierName": "MVC_PROPERTY_CHANGED"
                 },
-                "name": "MVC_PROPERTY_CHANGED"
+                "name": "MVC_PROPERTY_CHANGED",
+                "leadingComments": null
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 366,
-                "end": 398,
+                "start": 955,
+                "end": 987,
                 "loc": {
                   "start": {
-                    "line": 9,
+                    "line": 31,
                     "column": 36
                   },
                   "end": {
-                    "line": 9,
+                    "line": 31,
                     "column": 68
                   }
                 },
                 "expressions": [
                   {
                     "type": "Identifier",
-                    "start": 369,
-                    "end": 379,
+                    "start": 958,
+                    "end": 968,
                     "loc": {
                       "start": {
-                        "line": 9,
+                        "line": 31,
                         "column": 39
                       },
                       "end": {
-                        "line": 9,
+                        "line": 31,
                         "column": 49
                       },
                       "identifierName": "APP_PREFIX"
@@ -921,15 +1300,15 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 367,
-                    "end": 367,
+                    "start": 956,
+                    "end": 956,
                     "loc": {
                       "start": {
-                        "line": 9,
+                        "line": 31,
                         "column": 37
                       },
                       "end": {
-                        "line": 9,
+                        "line": 31,
                         "column": 37
                       }
                     },
@@ -941,15 +1320,15 @@
                   },
                   {
                     "type": "TemplateElement",
-                    "start": 380,
-                    "end": 397,
+                    "start": 969,
+                    "end": 986,
                     "loc": {
                       "start": {
-                        "line": 9,
+                        "line": 31,
                         "column": 50
                       },
                       "end": {
-                        "line": 9,
+                        "line": 31,
                         "column": 67
                       }
                     },
@@ -960,25 +1339,96 @@
                     "tail": true
                   }
                 ]
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom event name for when a single property of a model has been modified\r\n ",
+              "start": 829,
+              "end": 917,
+              "loc": {
+                "start": {
+                  "line": 28,
+                  "column": 0
+                },
+                "end": {
+                  "line": 30,
+                  "column": 3
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom event name for when an input in a View has been updated\r\n ",
+              "start": 992,
+              "end": 1069,
+              "loc": {
+                "start": {
+                  "line": 33,
+                  "column": 0
+                },
+                "end": {
+                  "line": 35,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom event name for when a single property of a model has been modified\r\n ",
+            "start": 829,
+            "end": 917,
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 0
+              },
+              "end": {
+                "line": 30,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom event name for when an input in a View has been updated\r\n ",
+            "start": 992,
+            "end": 1069,
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 0
+              },
+              "end": {
+                "line": 35,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 401,
-        "end": 464,
+        "start": 1071,
+        "end": 1134,
         "loc": {
           "start": {
-            "line": 10,
+            "line": 36,
             "column": 0
           },
           "end": {
-            "line": 10,
+            "line": 36,
             "column": 63
           }
         },
@@ -986,76 +1436,77 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 408,
-          "end": 464,
+          "start": 1078,
+          "end": 1134,
           "loc": {
             "start": {
-              "line": 10,
+              "line": 36,
               "column": 7
             },
             "end": {
-              "line": 10,
+              "line": 36,
               "column": 63
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 414,
-              "end": 463,
+              "start": 1084,
+              "end": 1133,
               "loc": {
                 "start": {
-                  "line": 10,
+                  "line": 36,
                   "column": 13
                 },
                 "end": {
-                  "line": 10,
+                  "line": 36,
                   "column": 62
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 414,
-                "end": 431,
+                "start": 1084,
+                "end": 1101,
                 "loc": {
                   "start": {
-                    "line": 10,
+                    "line": 36,
                     "column": 13
                   },
                   "end": {
-                    "line": 10,
+                    "line": 36,
                     "column": 30
                   },
                   "identifierName": "MVC_INPUT_CHANGED"
                 },
-                "name": "MVC_INPUT_CHANGED"
+                "name": "MVC_INPUT_CHANGED",
+                "leadingComments": null
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 434,
-                "end": 463,
+                "start": 1104,
+                "end": 1133,
                 "loc": {
                   "start": {
-                    "line": 10,
+                    "line": 36,
                     "column": 33
                   },
                   "end": {
-                    "line": 10,
+                    "line": 36,
                     "column": 62
                   }
                 },
                 "expressions": [
                   {
                     "type": "Identifier",
-                    "start": 437,
-                    "end": 447,
+                    "start": 1107,
+                    "end": 1117,
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 36,
                         "column": 36
                       },
                       "end": {
-                        "line": 10,
+                        "line": 36,
                         "column": 46
                       },
                       "identifierName": "APP_PREFIX"
@@ -1066,15 +1517,15 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 435,
-                    "end": 435,
+                    "start": 1105,
+                    "end": 1105,
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 36,
                         "column": 34
                       },
                       "end": {
-                        "line": 10,
+                        "line": 36,
                         "column": 34
                       }
                     },
@@ -1086,15 +1537,15 @@
                   },
                   {
                     "type": "TemplateElement",
-                    "start": 448,
-                    "end": 462,
+                    "start": 1118,
+                    "end": 1132,
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 36,
                         "column": 47
                       },
                       "end": {
-                        "line": 10,
+                        "line": 36,
                         "column": 61
                       }
                     },
@@ -1105,25 +1556,96 @@
                     "tail": true
                   }
                 ]
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * A custom event name for when an input in a View has been updated\r\n ",
+              "start": 992,
+              "end": 1069,
+              "loc": {
+                "start": {
+                  "line": 33,
+                  "column": 0
+                },
+                "end": {
+                  "line": 35,
+                  "column": 3
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * The name of the custom element defined by MVCView\r\n * @experimental this may be deprecated in the future\r\n ",
+              "start": 1138,
+              "end": 1255,
+              "loc": {
+                "start": {
+                  "line": 38,
+                  "column": 0
+                },
+                "end": {
+                  "line": 41,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * A custom event name for when an input in a View has been updated\r\n ",
+            "start": 992,
+            "end": 1069,
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 0
+              },
+              "end": {
+                "line": 35,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * The name of the custom element defined by MVCView\r\n * @experimental this may be deprecated in the future\r\n ",
+            "start": 1138,
+            "end": 1255,
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 0
+              },
+              "end": {
+                "line": 41,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 470,
-        "end": 523,
+        "start": 1257,
+        "end": 1310,
         "loc": {
           "start": {
-            "line": 13,
+            "line": 42,
             "column": 0
           },
           "end": {
-            "line": 13,
+            "line": 42,
             "column": 53
           }
         },
@@ -1131,76 +1653,77 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 477,
-          "end": 523,
+          "start": 1264,
+          "end": 1310,
           "loc": {
             "start": {
-              "line": 13,
+              "line": 42,
               "column": 7
             },
             "end": {
-              "line": 13,
+              "line": 42,
               "column": 53
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 483,
-              "end": 522,
+              "start": 1270,
+              "end": 1309,
               "loc": {
                 "start": {
-                  "line": 13,
+                  "line": 42,
                   "column": 13
                 },
                 "end": {
-                  "line": 13,
+                  "line": 42,
                   "column": 52
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 483,
-                "end": 499,
+                "start": 1270,
+                "end": 1286,
                 "loc": {
                   "start": {
-                    "line": 13,
+                    "line": 42,
                     "column": 13
                   },
                   "end": {
-                    "line": 13,
+                    "line": 42,
                     "column": 29
                   },
                   "identifierName": "MVC_VIEW_ELEMENT"
                 },
-                "name": "MVC_VIEW_ELEMENT"
+                "name": "MVC_VIEW_ELEMENT",
+                "leadingComments": null
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 502,
-                "end": 522,
+                "start": 1289,
+                "end": 1309,
                 "loc": {
                   "start": {
-                    "line": 13,
+                    "line": 42,
                     "column": 32
                   },
                   "end": {
-                    "line": 13,
+                    "line": 42,
                     "column": 52
                   }
                 },
                 "expressions": [
                   {
                     "type": "Identifier",
-                    "start": 505,
-                    "end": 515,
+                    "start": 1292,
+                    "end": 1302,
                     "loc": {
                       "start": {
-                        "line": 13,
+                        "line": 42,
                         "column": 35
                       },
                       "end": {
-                        "line": 13,
+                        "line": 42,
                         "column": 45
                       },
                       "identifierName": "APP_PREFIX"
@@ -1211,15 +1734,15 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 503,
-                    "end": 503,
+                    "start": 1290,
+                    "end": 1290,
                     "loc": {
                       "start": {
-                        "line": 13,
+                        "line": 42,
                         "column": 33
                       },
                       "end": {
-                        "line": 13,
+                        "line": 42,
                         "column": 33
                       }
                     },
@@ -1231,15 +1754,15 @@
                   },
                   {
                     "type": "TemplateElement",
-                    "start": 516,
-                    "end": 521,
+                    "start": 1303,
+                    "end": 1308,
                     "loc": {
                       "start": {
-                        "line": 13,
+                        "line": 42,
                         "column": 46
                       },
                       "end": {
-                        "line": 13,
+                        "line": 42,
                         "column": 51
                       }
                     },
@@ -1250,18 +1773,183 @@
                     "tail": true
                   }
                 ]
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\r\n * The name of the custom element defined by MVCView\r\n * @experimental this may be deprecated in the future\r\n ",
+              "start": 1138,
+              "end": 1255,
+              "loc": {
+                "start": {
+                  "line": 38,
+                  "column": 0
+                },
+                "end": {
+                  "line": 41,
+                  "column": 3
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * The name of the custom element defined by MVCView\r\n * @experimental this may be deprecated in the future\r\n ",
+            "start": 1138,
+            "end": 1255,
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 0
+              },
+              "end": {
+                "line": 41,
+                "column": 3
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom attribute which directs the view to observe a particular value of the model\r\n ",
+      "start": 29,
+      "end": 126,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom attribute which directs the view to update a particular value of the model\r\n ",
+      "start": 185,
+      "end": 281,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom attribute which ensures that events are triggered properly for radio inputs\r\n ",
+      "start": 340,
+      "end": 437,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom attribute which ensures that events are triggered properly for checkbox inputs\r\n ",
+      "start": 502,
+      "end": 602,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom event name for when multiple properties of a model have been modified\r\n ",
+      "start": 667,
+      "end": 758,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 25,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom event name for when a single property of a model has been modified\r\n ",
+      "start": 829,
+      "end": 917,
+      "loc": {
+        "start": {
+          "line": 28,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom event name for when an input in a View has been updated\r\n ",
+      "start": 992,
+      "end": 1069,
+      "loc": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 35,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * The name of the custom element defined by MVCView\r\n * @experimental this may be deprecated in the future\r\n ",
+      "start": 1138,
+      "end": 1255,
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 0
+        },
+        "end": {
+          "line": 41,
+          "column": 3
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -1398,6 +2086,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom attribute which directs the view to observe a particular value of the model\r\n ",
+      "start": 29,
+      "end": 126,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 3
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -1412,15 +2116,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 29,
-      "end": 35,
+      "start": 128,
+      "end": 134,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 6
         }
       }
@@ -1440,15 +2144,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 36,
-      "end": 41,
+      "start": 135,
+      "end": 140,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 12
         }
       }
@@ -1466,15 +2170,15 @@
         "binop": null
       },
       "value": "MVC_OBSERVES",
-      "start": 42,
-      "end": 54,
+      "start": 141,
+      "end": 153,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 13
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 25
         }
       }
@@ -1493,15 +2197,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 55,
-      "end": 56,
+      "start": 154,
+      "end": 155,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 26
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 27
         }
       }
@@ -1518,15 +2222,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 57,
-      "end": 58,
+      "start": 156,
+      "end": 157,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 28
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 29
         }
       }
@@ -1545,15 +2249,15 @@
         "updateContext": null
       },
       "value": "",
-      "start": 58,
-      "end": 58,
+      "start": 157,
+      "end": 157,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 29
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 29
         }
       }
@@ -1570,15 +2274,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 58,
-      "end": 60,
+      "start": 157,
+      "end": 159,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 29
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 31
         }
       }
@@ -1596,15 +2300,15 @@
         "binop": null
       },
       "value": "APP_PREFIX",
-      "start": 60,
-      "end": 70,
+      "start": 159,
+      "end": 169,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 31
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 41
         }
       }
@@ -1621,15 +2325,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 70,
-      "end": 71,
+      "start": 169,
+      "end": 170,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 41
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 42
         }
       }
@@ -1648,15 +2352,15 @@
         "updateContext": null
       },
       "value": "-observes",
-      "start": 71,
-      "end": 80,
+      "start": 170,
+      "end": 179,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 42
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 51
         }
       }
@@ -1673,15 +2377,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 80,
-      "end": 81,
+      "start": 179,
+      "end": 180,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 51
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 52
         }
       }
@@ -1699,16 +2403,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 81,
-      "end": 82,
+      "start": 180,
+      "end": 181,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 52
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 53
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom attribute which directs the view to update a particular value of the model\r\n ",
+      "start": 185,
+      "end": 281,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 3
         }
       }
     },
@@ -1727,15 +2447,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 84,
-      "end": 90,
+      "start": 283,
+      "end": 289,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 0
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 6
         }
       }
@@ -1755,15 +2475,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 91,
-      "end": 96,
+      "start": 290,
+      "end": 295,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 7
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 12
         }
       }
@@ -1781,15 +2501,15 @@
         "binop": null
       },
       "value": "MVC_CONTROLS",
-      "start": 97,
-      "end": 109,
+      "start": 296,
+      "end": 308,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 13
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 25
         }
       }
@@ -1808,15 +2528,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 110,
-      "end": 111,
+      "start": 309,
+      "end": 310,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 26
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 27
         }
       }
@@ -1833,15 +2553,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 112,
-      "end": 113,
+      "start": 311,
+      "end": 312,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 28
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 29
         }
       }
@@ -1860,15 +2580,15 @@
         "updateContext": null
       },
       "value": "",
-      "start": 113,
-      "end": 113,
+      "start": 312,
+      "end": 312,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 29
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 29
         }
       }
@@ -1885,15 +2605,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 113,
-      "end": 115,
+      "start": 312,
+      "end": 314,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 29
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 31
         }
       }
@@ -1911,15 +2631,15 @@
         "binop": null
       },
       "value": "APP_PREFIX",
-      "start": 115,
-      "end": 125,
+      "start": 314,
+      "end": 324,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 31
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 41
         }
       }
@@ -1936,15 +2656,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 125,
-      "end": 126,
+      "start": 324,
+      "end": 325,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 41
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 42
         }
       }
@@ -1963,15 +2683,15 @@
         "updateContext": null
       },
       "value": "-controls",
-      "start": 126,
-      "end": 135,
+      "start": 325,
+      "end": 334,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 42
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 51
         }
       }
@@ -1988,15 +2708,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 135,
-      "end": 136,
+      "start": 334,
+      "end": 335,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 51
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 52
         }
       }
@@ -2014,16 +2734,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 136,
-      "end": 137,
+      "start": 335,
+      "end": 336,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 52
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 53
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom attribute which ensures that events are triggered properly for radio inputs\r\n ",
+      "start": 340,
+      "end": 437,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 3
         }
       }
     },
@@ -2042,15 +2778,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 139,
-      "end": 145,
+      "start": 439,
+      "end": 445,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 6
         }
       }
@@ -2070,15 +2806,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 146,
-      "end": 151,
+      "start": 446,
+      "end": 451,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 7
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 12
         }
       }
@@ -2096,15 +2832,15 @@
         "binop": null
       },
       "value": "MVC_RADIO_GROUP",
-      "start": 152,
-      "end": 167,
+      "start": 452,
+      "end": 467,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 13
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 28
         }
       }
@@ -2123,15 +2859,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 168,
-      "end": 169,
+      "start": 468,
+      "end": 469,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 29
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 30
         }
       }
@@ -2148,15 +2884,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 170,
-      "end": 171,
+      "start": 470,
+      "end": 471,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 31
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 32
         }
       }
@@ -2175,15 +2911,15 @@
         "updateContext": null
       },
       "value": "",
-      "start": 171,
-      "end": 171,
+      "start": 471,
+      "end": 471,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 32
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 32
         }
       }
@@ -2200,15 +2936,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 171,
-      "end": 173,
+      "start": 471,
+      "end": 473,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 32
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 34
         }
       }
@@ -2226,15 +2962,15 @@
         "binop": null
       },
       "value": "APP_PREFIX",
-      "start": 173,
-      "end": 183,
+      "start": 473,
+      "end": 483,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 34
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 44
         }
       }
@@ -2251,15 +2987,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 183,
-      "end": 184,
+      "start": 483,
+      "end": 484,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 44
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 45
         }
       }
@@ -2278,15 +3014,15 @@
         "updateContext": null
       },
       "value": "-radio-group",
-      "start": 184,
-      "end": 196,
+      "start": 484,
+      "end": 496,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 45
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 57
         }
       }
@@ -2303,15 +3039,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 196,
-      "end": 197,
+      "start": 496,
+      "end": 497,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 57
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 58
         }
       }
@@ -2329,16 +3065,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 197,
-      "end": 198,
+      "start": 497,
+      "end": 498,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 58
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 59
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom attribute which ensures that events are triggered properly for checkbox inputs\r\n ",
+      "start": 502,
+      "end": 602,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 3
         }
       }
     },
@@ -2357,15 +3109,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 200,
-      "end": 206,
+      "start": 604,
+      "end": 610,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 0
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 6
         }
       }
@@ -2385,15 +3137,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 207,
-      "end": 212,
+      "start": 611,
+      "end": 616,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 7
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 12
         }
       }
@@ -2411,15 +3163,15 @@
         "binop": null
       },
       "value": "MVC_CHECK_GROUP",
-      "start": 213,
-      "end": 228,
+      "start": 617,
+      "end": 632,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 13
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 28
         }
       }
@@ -2438,15 +3190,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 229,
-      "end": 230,
+      "start": 633,
+      "end": 634,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 29
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 30
         }
       }
@@ -2463,15 +3215,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 231,
-      "end": 232,
+      "start": 635,
+      "end": 636,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 31
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 32
         }
       }
@@ -2490,15 +3242,15 @@
         "updateContext": null
       },
       "value": "",
-      "start": 232,
-      "end": 232,
+      "start": 636,
+      "end": 636,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 32
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 32
         }
       }
@@ -2515,15 +3267,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 232,
-      "end": 234,
+      "start": 636,
+      "end": 638,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 32
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 34
         }
       }
@@ -2541,15 +3293,15 @@
         "binop": null
       },
       "value": "APP_PREFIX",
-      "start": 234,
-      "end": 244,
+      "start": 638,
+      "end": 648,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 34
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 44
         }
       }
@@ -2566,15 +3318,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 244,
-      "end": 245,
+      "start": 648,
+      "end": 649,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 44
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 45
         }
       }
@@ -2593,15 +3345,15 @@
         "updateContext": null
       },
       "value": "-check-group",
-      "start": 245,
-      "end": 257,
+      "start": 649,
+      "end": 661,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 45
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 57
         }
       }
@@ -2618,15 +3370,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 257,
-      "end": 258,
+      "start": 661,
+      "end": 662,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 57
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 58
         }
       }
@@ -2644,16 +3396,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 258,
-      "end": 259,
+      "start": 662,
+      "end": 663,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 21,
           "column": 58
         },
         "end": {
-          "line": 6,
+          "line": 21,
           "column": 59
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom event name for when multiple properties of a model have been modified\r\n ",
+      "start": 667,
+      "end": 758,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 25,
+          "column": 3
         }
       }
     },
@@ -2672,15 +3440,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 263,
-      "end": 269,
+      "start": 760,
+      "end": 766,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 6
         }
       }
@@ -2700,15 +3468,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 270,
-      "end": 275,
+      "start": 767,
+      "end": 772,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 7
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 12
         }
       }
@@ -2726,15 +3494,15 @@
         "binop": null
       },
       "value": "MVC_MODEL_MODIFIED",
-      "start": 276,
-      "end": 294,
+      "start": 773,
+      "end": 791,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 13
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 31
         }
       }
@@ -2753,15 +3521,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 295,
-      "end": 296,
+      "start": 792,
+      "end": 793,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 32
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 33
         }
       }
@@ -2778,15 +3546,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 297,
-      "end": 298,
+      "start": 794,
+      "end": 795,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 34
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 35
         }
       }
@@ -2805,15 +3573,15 @@
         "updateContext": null
       },
       "value": "",
-      "start": 298,
-      "end": 298,
+      "start": 795,
+      "end": 795,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 35
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 35
         }
       }
@@ -2830,15 +3598,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 298,
-      "end": 300,
+      "start": 795,
+      "end": 797,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 35
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 37
         }
       }
@@ -2856,15 +3624,15 @@
         "binop": null
       },
       "value": "APP_PREFIX",
-      "start": 300,
-      "end": 310,
+      "start": 797,
+      "end": 807,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 37
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 47
         }
       }
@@ -2881,15 +3649,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 310,
-      "end": 311,
+      "start": 807,
+      "end": 808,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 47
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 48
         }
       }
@@ -2908,15 +3676,15 @@
         "updateContext": null
       },
       "value": "-model-modified",
-      "start": 311,
-      "end": 326,
+      "start": 808,
+      "end": 823,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 48
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 63
         }
       }
@@ -2933,15 +3701,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 326,
-      "end": 327,
+      "start": 823,
+      "end": 824,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 63
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 64
         }
       }
@@ -2959,16 +3727,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 327,
-      "end": 328,
+      "start": 824,
+      "end": 825,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 26,
           "column": 64
         },
         "end": {
-          "line": 8,
+          "line": 26,
           "column": 65
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom event name for when a single property of a model has been modified\r\n ",
+      "start": 829,
+      "end": 917,
+      "loc": {
+        "start": {
+          "line": 28,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 3
         }
       }
     },
@@ -2987,15 +3771,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 330,
-      "end": 336,
+      "start": 919,
+      "end": 925,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 0
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 6
         }
       }
@@ -3015,15 +3799,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 337,
-      "end": 342,
+      "start": 926,
+      "end": 931,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 7
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 12
         }
       }
@@ -3041,15 +3825,15 @@
         "binop": null
       },
       "value": "MVC_PROPERTY_CHANGED",
-      "start": 343,
-      "end": 363,
+      "start": 932,
+      "end": 952,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 13
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 33
         }
       }
@@ -3068,15 +3852,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 364,
-      "end": 365,
+      "start": 953,
+      "end": 954,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 34
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 35
         }
       }
@@ -3093,15 +3877,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 366,
-      "end": 367,
+      "start": 955,
+      "end": 956,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 36
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 37
         }
       }
@@ -3120,15 +3904,15 @@
         "updateContext": null
       },
       "value": "",
-      "start": 367,
-      "end": 367,
+      "start": 956,
+      "end": 956,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 37
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 37
         }
       }
@@ -3145,15 +3929,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 367,
-      "end": 369,
+      "start": 956,
+      "end": 958,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 37
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 39
         }
       }
@@ -3171,15 +3955,15 @@
         "binop": null
       },
       "value": "APP_PREFIX",
-      "start": 369,
-      "end": 379,
+      "start": 958,
+      "end": 968,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 39
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 49
         }
       }
@@ -3196,15 +3980,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 379,
-      "end": 380,
+      "start": 968,
+      "end": 969,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 49
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 50
         }
       }
@@ -3223,15 +4007,15 @@
         "updateContext": null
       },
       "value": "-property-changed",
-      "start": 380,
-      "end": 397,
+      "start": 969,
+      "end": 986,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 50
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 67
         }
       }
@@ -3248,15 +4032,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 397,
-      "end": 398,
+      "start": 986,
+      "end": 987,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 67
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 68
         }
       }
@@ -3274,16 +4058,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 398,
-      "end": 399,
+      "start": 987,
+      "end": 988,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 31,
           "column": 68
         },
         "end": {
-          "line": 9,
+          "line": 31,
           "column": 69
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * A custom event name for when an input in a View has been updated\r\n ",
+      "start": 992,
+      "end": 1069,
+      "loc": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 35,
+          "column": 3
         }
       }
     },
@@ -3302,15 +4102,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 401,
-      "end": 407,
+      "start": 1071,
+      "end": 1077,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 0
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 6
         }
       }
@@ -3330,15 +4130,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 408,
-      "end": 413,
+      "start": 1078,
+      "end": 1083,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 7
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 12
         }
       }
@@ -3356,15 +4156,15 @@
         "binop": null
       },
       "value": "MVC_INPUT_CHANGED",
-      "start": 414,
-      "end": 431,
+      "start": 1084,
+      "end": 1101,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 13
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 30
         }
       }
@@ -3383,15 +4183,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 432,
-      "end": 433,
+      "start": 1102,
+      "end": 1103,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 31
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 32
         }
       }
@@ -3408,15 +4208,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 434,
-      "end": 435,
+      "start": 1104,
+      "end": 1105,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 33
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 34
         }
       }
@@ -3435,15 +4235,15 @@
         "updateContext": null
       },
       "value": "",
-      "start": 435,
-      "end": 435,
+      "start": 1105,
+      "end": 1105,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 34
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 34
         }
       }
@@ -3460,15 +4260,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 435,
-      "end": 437,
+      "start": 1105,
+      "end": 1107,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 34
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 36
         }
       }
@@ -3486,15 +4286,15 @@
         "binop": null
       },
       "value": "APP_PREFIX",
-      "start": 437,
-      "end": 447,
+      "start": 1107,
+      "end": 1117,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 36
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 46
         }
       }
@@ -3511,15 +4311,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 447,
-      "end": 448,
+      "start": 1117,
+      "end": 1118,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 46
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 47
         }
       }
@@ -3538,15 +4338,15 @@
         "updateContext": null
       },
       "value": "-input-changed",
-      "start": 448,
-      "end": 462,
+      "start": 1118,
+      "end": 1132,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 47
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 61
         }
       }
@@ -3563,15 +4363,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 462,
-      "end": 463,
+      "start": 1132,
+      "end": 1133,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 61
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 62
         }
       }
@@ -3589,16 +4389,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 463,
-      "end": 464,
+      "start": 1133,
+      "end": 1134,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 36,
           "column": 62
         },
         "end": {
-          "line": 10,
+          "line": 36,
           "column": 63
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * The name of the custom element defined by MVCView\r\n * @experimental this may be deprecated in the future\r\n ",
+      "start": 1138,
+      "end": 1255,
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 0
+        },
+        "end": {
+          "line": 41,
+          "column": 3
         }
       }
     },
@@ -3617,15 +4433,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 470,
-      "end": 476,
+      "start": 1257,
+      "end": 1263,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 6
         }
       }
@@ -3645,15 +4461,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 477,
-      "end": 482,
+      "start": 1264,
+      "end": 1269,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 7
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 12
         }
       }
@@ -3671,15 +4487,15 @@
         "binop": null
       },
       "value": "MVC_VIEW_ELEMENT",
-      "start": 483,
-      "end": 499,
+      "start": 1270,
+      "end": 1286,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 13
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 29
         }
       }
@@ -3698,15 +4514,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 500,
-      "end": 501,
+      "start": 1287,
+      "end": 1288,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 30
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 31
         }
       }
@@ -3723,15 +4539,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 502,
-      "end": 503,
+      "start": 1289,
+      "end": 1290,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 32
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 33
         }
       }
@@ -3750,15 +4566,15 @@
         "updateContext": null
       },
       "value": "",
-      "start": 503,
-      "end": 503,
+      "start": 1290,
+      "end": 1290,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 33
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 33
         }
       }
@@ -3775,15 +4591,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 503,
-      "end": 505,
+      "start": 1290,
+      "end": 1292,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 33
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 35
         }
       }
@@ -3801,15 +4617,15 @@
         "binop": null
       },
       "value": "APP_PREFIX",
-      "start": 505,
-      "end": 515,
+      "start": 1292,
+      "end": 1302,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 35
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 45
         }
       }
@@ -3826,15 +4642,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 515,
-      "end": 516,
+      "start": 1302,
+      "end": 1303,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 45
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 46
         }
       }
@@ -3853,15 +4669,15 @@
         "updateContext": null
       },
       "value": "-view",
-      "start": 516,
-      "end": 521,
+      "start": 1303,
+      "end": 1308,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 46
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 51
         }
       }
@@ -3878,15 +4694,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 521,
-      "end": 522,
+      "start": 1308,
+      "end": 1309,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 51
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 52
         }
       }
@@ -3904,15 +4720,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 522,
-      "end": 523,
+      "start": 1309,
+      "end": 1310,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 42,
           "column": 52
         },
         "end": {
-          "line": 13,
+          "line": 42,
           "column": 53
         }
       }
@@ -3930,15 +4746,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 525,
-      "end": 525,
+      "start": 1312,
+      "end": 1312,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 43,
           "column": 0
         },
         "end": {
-          "line": 14,
+          "line": 43,
           "column": 0
         }
       }

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/view.js | micro-mvc</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A minimal MVC tool"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="micro-mvc"><meta property="twitter:description" content="A minimal MVC tool"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/theOutLiar/micro-mvc"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/event-emitter.js~EventEmitter.html">EventEmitter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/model.js~Model.html">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/view.js~View.html">View</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_CHECK_GROUP">MVC_CHECK_GROUP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_CONTROLS">MVC_CONTROLS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_INPUT_CHANGED">MVC_INPUT_CHANGED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_MODEL_MODIFIED">MVC_MODEL_MODIFIED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_OBSERVES">MVC_OBSERVES</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_PROPERTY_CHANGED">MVC_PROPERTY_CHANGED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_RADIO_GROUP">MVC_RADIO_GROUP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MVC_VIEW_ELEMENT">MVC_VIEW_ELEMENT</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#custom-elements">custom-elements</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/custom-elements/mvc-view.js~MVCView.html">MVCView</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/view.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import * as config from &apos;./config&apos;;
+
+import EventEmitter from &apos;./event-emitter&apos;;
+
+/**
+ * The View class is an EventEmitter that searches the children of the provided DOM object for custom attributes
+ * which direct it to observe and/or update properties of the provided model object
+ * @extends {EventEmitter}
+ * @todo Write detailed comments
+ */
+export default class View extends EventEmitter {
+    /**
+     * The constructor searches the DOM object and attaches events to the model and the view
+     * @param {object} viewDOM A DOM object with children that observe or control the values of the model
+     * @param {object} model A model object of type Model to be observed and updated by the View
+     */
+    constructor(viewDOM, model) {
+        super();
+
+        let observers = viewDOM.querySelectorAll(`[${config.MVC_OBSERVES}]`);
+        let controls = viewDOM.querySelectorAll(`[${config.MVC_CONTROLS}]`);
+
+        let radioGroupObservers = viewDOM.querySelectorAll(`[${config.MVC_OBSERVES}][${config.MVC_RADIO_GROUP}]`);
+        let radioGroupControls = viewDOM.querySelectorAll(`[${config.MVC_CONTROLS}][${config.MVC_RADIO_GROUP}]`);
+
+        let checkGroupObservers = viewDOM.querySelectorAll(`[${config.MVC_OBSERVES}][${config.MVC_CHECK_GROUP}]`);
+        let checkGroupControls = viewDOM.querySelectorAll(`[${config.MVC_CONTROLS}][${config.MVC_CHECK_GROUP}]`);
+
+        radioGroupObservers = Array.prototype.map.call(radioGroupObservers, (o) =&gt; o);
+        radioGroupControls = Array.prototype.map.call(radioGroupControls, (c) =&gt; c);
+
+        checkGroupObservers = Array.prototype.map.call(checkGroupObservers, (o) =&gt; o);
+        checkGroupControls = Array.prototype.map.call(checkGroupControls, (c) =&gt; c);
+
+        let fieldsetGetAdapter = new Map();
+        let fieldsetOptionsMap = new Map();
+        let selectOptionsMap = new Map();
+        let fieldsetSetAdapter = new Map();
+
+        function getInputValue(control) {
+            let inputType = control.getAttribute(&apos;type&apos;);
+
+            //most of these can just fall through to default, listing them exhaustively for thoroughness
+            switch (inputType) {
+                case &apos;button&apos;:
+                case &apos;file&apos;: //TODO: figure out if possible to handle file
+                case &apos;image&apos;:
+                case &apos;password&apos;: //you should never be allowed to control this programmatically
+                case &apos;reset&apos;:
+                case &apos;submit&apos;:
+                    throw new TypeError(`Inputs of type ${inputType} cannot observe models`);
+                case &apos;checkbox&apos;:
+                    return control.checked;
+                    //case &apos;color&apos;: case &apos;date&apos;: case &apos;datetime-local&apos;: case &apos;email&apos;: case &apos;hidden&apos;: case &apos;month&apos;: case &apos;number&apos;: case &apos;radio&apos;: case &apos;range&apos;: case &apos;search&apos;: case &apos;tel&apos;: case &apos;text&apos;: case &apos;time&apos;: case &apos;url&apos;: case &apos;week&apos;:
+                default:
+                    return control.value;
+            }
+        }
+
+        function getControlValue(control) {
+            switch (control.tagName) {
+                case &apos;INPUT&apos;:
+                    return getInputValue(control);
+                case &apos;FIELDSET&apos;:
+                    return fieldsetGetAdapter.get(control)();
+                case &apos;SELECT&apos;:
+                    return control.value;
+                default:
+                    return control.innerHTML;
+            }
+        }
+
+        function updateInputValue(observer, value) {
+            let inputType = observer.getAttribute(&apos;type&apos;);
+            switch (inputType) {
+                case &apos;button&apos;:
+                case &apos;file&apos;: //TODO: figure out if possible to handle file
+                case &apos;image&apos;:
+                case &apos;reset&apos;:
+                case &apos;submit&apos;:
+                    throw new TypeError(`Inputs of type ${inputType} do not have values`);
+                case &apos;password&apos;: //you should never be allowed to control this programmatically
+                    throw new TypeError(`Inputs of type ${inputType} may not be modified by controllers`);
+                case &apos;checkbox&apos;:
+                    observer.checked = value;
+                    break;
+                    //TODO: implement errors for cases when types like numbers and ranges have min, max, and step attributes
+                    //TODO: test dates
+                    //case &apos;color&apos;: case &apos;date&apos;: case &apos;datetime-local&apos;: case &apos;email&apos;: case &apos;hidden&apos;: case &apos;month&apos;: case &apos;number&apos;: case &apos;radio&apos;: case &apos;range&apos;: case &apos;search&apos;: case &apos;tel&apos;: case &apos;text&apos;: case &apos;time&apos;: case &apos;url&apos;: case &apos;week&apos;:
+                default:
+                    observer.value = value;
+                    break;
+            }
+        }
+
+        function updateObserver(observer, value) {
+            switch (observer.tagName) {
+                case &apos;INPUT&apos;:
+                    updateInputValue(observer, value);
+                    break;
+                case &apos;FIELDSET&apos;:
+                    if (observer.hasAttribute(config.MVC_RADIO_GROUP) &amp;&amp; !fieldsetOptionsMap.get(observer).includes(value)) {
+                        throw new RangeError(`The value supplied, ${value}, is not a valid option`);
+                    } else if (observer.hasAttribute(config.MVC_CHECK_GROUP) &amp;&amp; Object.keys(value).filter(v =&gt; !fieldsetOptionsMap.get(observer).includes(v)).length) {
+                        throw new RangeError(`At least one of the values supplied, ${value}, is not a valid option`);
+                    }
+                    fieldsetSetAdapter.get(observer)(value);
+                    break;
+                case &apos;SELECT&apos;:
+                    if (!selectOptionsMap.get(observer).includes(value)) {
+                        throw new RangeError(`The value supplied, ${value}, is not a valid option`);
+                    }
+                    observer.value = value;
+                    break;
+                default:
+                    observer.innerHTML = value;
+                    break;
+            }
+        }
+
+        for (let i = 0; i &lt; controls.length; i++) {
+            let controlledValues = controls[i].getAttribute(config.MVC_CONTROLS).split(&apos;,&apos;);
+            let addEventListeners = (c) =&gt; {
+                for (let val in controlledValues) {
+                    c.addEventListener(&apos;change&apos;, (e) =&gt; {
+                        let ce = new CustomEvent(config.MVC_INPUT_CHANGED, {
+                            target: e.target,
+                            detail: {
+                                property: controlledValues[val],
+                                value: getControlValue(controls[i])
+                            }
+                        });
+                        model[controlledValues[val]] = getControlValue(controls[i]);
+                        this.dispatchEvent(ce);
+                    });
+                }
+            };
+
+            if (radioGroupControls.includes(controls[i])) {
+                let radioGroupName = controls[i].getAttribute(config.MVC_RADIO_GROUP);
+
+                let radioForm = controls[i].closest(&apos;form&apos;);
+                let nodeList = radioForm ? radioForm.elements[radioGroupName] : document.getElementsByName(radioGroupName);
+
+                fieldsetGetAdapter.set(controls[i], (radioForm ?
+                    () =&gt; nodeList.value :
+                    () =&gt; controls[i].querySelector(&apos;:checked&apos;).value
+                ));
+
+                nodeList.forEach((n) =&gt; {
+                    addEventListeners(n);
+                });
+            } else if (checkGroupControls.includes(controls[i])) {
+                let nodeList = controls[i].querySelectorAll(&apos;[type=&quot;checkbox&quot;]&apos;);
+
+                fieldsetGetAdapter.set(controls[i], () =&gt; {
+                    let result = {};
+                    nodeList.forEach((n) =&gt; {
+                        result[n.value] = n.checked;
+                    });
+                    return result;
+                });
+
+                nodeList.forEach((n) =&gt; {
+                    addEventListeners(n);
+                });
+            } else {
+                addEventListeners(controls[i]);
+            }
+        }
+
+        for (let i = 0; i &lt; observers.length; i++) {
+            if (radioGroupObservers.includes(observers[i])) {
+                let radioGroupName = observers[i].getAttribute(config.MVC_RADIO_GROUP);
+
+                let radioForm = observers[i].closest(&apos;form&apos;);
+                let nodeList = radioForm ? radioForm.elements[radioGroupName] : document.getElementsByName(radioGroupName);
+                fieldsetSetAdapter.set(observers[i], (radioForm ?
+                    (val) =&gt; nodeList.value = val :
+                    (val) =&gt; nodeList.forEach((n) =&gt; {
+                        n.checked = false;
+                        if (n.value === val) {
+                            n.checked = true;
+                        }
+                    })));
+                let options = [];
+                nodeList.forEach((o) =&gt; {
+                    options.push(o.value);
+                });
+                fieldsetOptionsMap.set(observers[i], options);
+            } else if (checkGroupObservers.includes(observers[i])) {
+                let nodeList = observers[i].querySelectorAll(&apos;[type=&quot;checkbox&quot;]&apos;);
+                fieldsetSetAdapter.set(observers[i], (val) =&gt; {
+                    nodeList.forEach((n) =&gt; {
+                        n.checked = val[n.value];
+                    });
+                });
+                let options = [];
+                nodeList.forEach((o) =&gt; {
+                    options.push(o.value);
+                });
+                fieldsetOptionsMap.set(observers[i], options);
+            } else if (observers[i].tagName === &apos;SELECT&apos;) {
+                let options = [];
+                observers[i].querySelectorAll(&apos;option&apos;).forEach((o) =&gt; {
+                    options.push(o.value);
+                });
+                selectOptionsMap.set(observers[i], options);
+            }
+
+            let observedValues = observers[i].getAttribute(config.MVC_OBSERVES).split(&apos;,&apos;);
+            for (let val in observedValues) {
+                model.addEventListener(config.MVC_PROPERTY_CHANGED, (e) =&gt; {
+                    if (observedValues[val] === e.detail.property &amp;&amp; e.target !== observers[i]) {
+                        updateObserver(observers[i], e.detail.value);
+                    }
+                });
+            }
+        }
+
+        model.addEventListener(config.MVC_MODEL_MODIFIED, (e) =&gt; {
+            for (let i = 0; i &lt; observers.length; i++) {
+                let observedValues = observers[i].getAttribute(config.MVC_OBSERVES).split(&apos;,&apos;);
+                for (let val in observedValues) {
+                    let updatedVal = e.detail.updates[observedValues[val]];
+                    if (updatedVal) {
+                        updateObserver(observers[i], updatedVal);
+                    }
+                }
+            }
+        });
+
+        //Assume that view DOM object is empty, and trigger a model update to ensure data is injected properly
+        model.modify(model.dataModel);
+    }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
