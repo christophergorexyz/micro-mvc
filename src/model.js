@@ -7,6 +7,10 @@ import * as config from './config';
  * @extends {EventEmitter}
  */
 export default class Model extends EventEmitter {
+    /**
+     * Create a Model which can observe and be observed by supplying a raw data object and encapsulating it
+     * @param {object} dataModel The raw data object to be encapsulated by the instance
+     */
     constructor(dataModel) {
         super();
 
@@ -50,6 +54,7 @@ export default class Model extends EventEmitter {
     /**
      * return the underlying _dataModel in its current state
      * @type {object}
+     * @experimental This may be deprecated in the future to preserve the object's namespace
      */
     get dataModel() {
         return this._dataModel;
@@ -58,6 +63,7 @@ export default class Model extends EventEmitter {
     /**
      * assign multiple values to the dataModel, and dispatch an event.
      * @param {object} val An object containing the values to be updated
+     * @experimental This may be deprecated in the future to preserve the object's namespace
      */
     modify(val) {
         Object.assign(this._dataModel, val);

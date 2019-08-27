@@ -105,13 +105,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/model.js~Model.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
+          <span class="code" data-ice="name"><span><a href="class/src/model.js~Model.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(dataModel: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Create a Model which can observe and be observed by supplying a raw data object and encapsulating it</p>
+</div>
       </div>
     </td>
     <td>
@@ -145,7 +146,7 @@
       </div>
       <div>
         
-        
+        <div class="experimental" data-ice="experimental">this get is experimental. This may be deprecated in the future to preserve the object&apos;s namespace</div>
         <div data-ice="description"><p>return the underlying _dataModel in its current state</p>
 </div>
       </div>
@@ -245,7 +246,7 @@
       </div>
       <div>
         
-        
+        <div class="experimental" data-ice="experimental">this method is experimental. This may be deprecated in the future to preserve the object&apos;s namespace</div>
         <div data-ice="description"><p>assign multiple values to the dataModel, and dispatch an event.</p>
 </div>
       </div>
@@ -453,23 +454,40 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">()</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(dataModel: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber10">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber14">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>This class is intended to be extended or composed into other classes.</p>
+  <div data-ice="description"><p>Create a Model which can observe and be observed by supplying a raw data object and encapsulating it</p>
 </div>
 
   <div data-ice="override"><h4>Override:</h4><span><a href="class/src/event-emitter.js~EventEmitter.html#instance-constructor-constructor">EventEmitter#constructor</a></span></div>
 
-  <div data-ice="properties">
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">dataModel</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The raw data object to be encapsulated by the instance</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
 </div>
 
   
@@ -504,13 +522,13 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber54">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber59">source</a></span></span>
     </span>
   </h3>
 
   
   
-  
+  <div class="experimental" data-ice="experimental">this get is experimental. This may be deprecated in the future to preserve the object&apos;s namespace</div>
   <div data-ice="description"><p>return the underlying _dataModel in its current state</p>
 </div>
 
@@ -548,7 +566,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber46">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber50">source</a></span></span>
     </span>
   </h3>
 
@@ -594,7 +612,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber17">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber21">source</a></span></span>
     </span>
   </h3>
 
@@ -641,13 +659,13 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber62">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/model.js.html#lineNumber68">source</a></span></span>
     </span>
   </h3>
 
   
   
-  
+  <div class="experimental" data-ice="experimental">this method is experimental. This may be deprecated in the future to preserve the object&apos;s namespace</div>
   <div data-ice="description"><p>assign multiple values to the dataModel, and dispatch an event.</p>
 </div>
 

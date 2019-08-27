@@ -6,6 +6,9 @@ import Model from '../model';
  * @experimental This class is an experimental featue, and may not be valid in the future
  */
 export default class MVCView extends HTMLElement {
+    /**
+     * Simply call the super() constructor
+     */
     constructor() {
         super();
     }

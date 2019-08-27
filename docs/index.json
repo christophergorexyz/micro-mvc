@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/config.js",
-    "content": "const APP_PREFIX = 'mvc';\r\n\r\n/**\r\n * A custom attribute which directs the view to observe a particular value of the model\r\n */\r\nexport const MVC_OBSERVES = `${APP_PREFIX}-observes`;\r\n\r\n/**\r\n * A custom attribute which directs the view to update a particular value of the model\r\n */\r\nexport const MVC_CONTROLS = `${APP_PREFIX}-controls`;\r\n\r\n/**\r\n * A custom attribute which ensures that events are triggered properly for radio inputs\r\n */\r\nexport const MVC_RADIO_GROUP = `${APP_PREFIX}-radio-group`;\r\n\r\n/**\r\n * A custom attribute which ensures that events are triggered properly for checkbox inputs\r\n */\r\nexport const MVC_CHECK_GROUP = `${APP_PREFIX}-check-group`;\r\n\r\n/**\r\n * A custom event name for when multiple properties of a model have been modified\r\n */\r\nexport const MVC_MODEL_MODIFIED = `${APP_PREFIX}-model-modified`;\r\n\r\n/**\r\n * A custom event name for when a single property of a model has been modified\r\n */\r\nexport const MVC_PROPERTY_CHANGED = `${APP_PREFIX}-property-changed`;\r\n\r\n/**\r\n * A custom event name for when an input in a View has been updated\r\n */\r\nexport const MVC_INPUT_CHANGED = `${APP_PREFIX}-input-changed`;\r\n\r\n/**\r\n * The name of the custom element defined by MVCView\r\n * @experimental this may be deprecated in the future\r\n */\r\nexport const MVC_VIEW_ELEMENT = `${APP_PREFIX}-view`;\r\n",
+    "content": "/**\r\n * A prefix for use for custom event, attribute, and element names\r\n */\r\nconst APP_PREFIX = 'mvc';\r\n\r\n/**\r\n * A custom attribute which directs the view to observe a particular value of the model\r\n */\r\nexport const MVC_OBSERVES = `${APP_PREFIX}-observes`;\r\n\r\n/**\r\n * A custom attribute which directs the view to update a particular value of the model\r\n */\r\nexport const MVC_CONTROLS = `${APP_PREFIX}-controls`;\r\n\r\n/**\r\n * A custom attribute which ensures that events are triggered properly for radio inputs\r\n */\r\nexport const MVC_RADIO_GROUP = `${APP_PREFIX}-radio-group`;\r\n\r\n/**\r\n * A custom attribute which ensures that events are triggered properly for checkbox inputs\r\n */\r\nexport const MVC_CHECK_GROUP = `${APP_PREFIX}-check-group`;\r\n\r\n/**\r\n * A custom event name for when multiple properties of a model have been modified\r\n */\r\nexport const MVC_MODEL_MODIFIED = `${APP_PREFIX}-model-modified`;\r\n\r\n/**\r\n * A custom event name for when a single property of a model has been modified\r\n */\r\nexport const MVC_PROPERTY_CHANGED = `${APP_PREFIX}-property-changed`;\r\n\r\n/**\r\n * A custom event name for when an input in a View has been updated\r\n */\r\nexport const MVC_INPUT_CHANGED = `${APP_PREFIX}-input-changed`;\r\n\r\n/**\r\n * The name of the custom element defined by MVCView\r\n * @experimental this may be deprecated in the future\r\n */\r\nexport const MVC_VIEW_ELEMENT = `${APP_PREFIX}-view`;\r\n",
     "static": true,
     "longname": "C:/Users/Christopher/git/micro-mvc/src/config.js",
     "access": "public",
@@ -585,9 +585,8 @@
     "export": false,
     "importPath": "micro-mvc/src/config.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
+    "description": "A prefix for use for custom event, attribute, and element names",
+    "lineNumber": 4,
     "type": {
       "types": [
         "string"
@@ -607,7 +606,7 @@
     "importPath": "micro-mvc/src/config.js",
     "importStyle": "{MVC_OBSERVES}",
     "description": "A custom attribute which directs the view to observe a particular value of the model",
-    "lineNumber": 6,
+    "lineNumber": 9,
     "type": {
       "types": [
         "string"
@@ -626,7 +625,7 @@
     "importPath": "micro-mvc/src/config.js",
     "importStyle": "{MVC_CONTROLS}",
     "description": "A custom attribute which directs the view to update a particular value of the model",
-    "lineNumber": 11,
+    "lineNumber": 14,
     "type": {
       "types": [
         "string"
@@ -645,7 +644,7 @@
     "importPath": "micro-mvc/src/config.js",
     "importStyle": "{MVC_RADIO_GROUP}",
     "description": "A custom attribute which ensures that events are triggered properly for radio inputs",
-    "lineNumber": 16,
+    "lineNumber": 19,
     "type": {
       "types": [
         "string"
@@ -664,7 +663,7 @@
     "importPath": "micro-mvc/src/config.js",
     "importStyle": "{MVC_CHECK_GROUP}",
     "description": "A custom attribute which ensures that events are triggered properly for checkbox inputs",
-    "lineNumber": 21,
+    "lineNumber": 24,
     "type": {
       "types": [
         "string"
@@ -683,7 +682,7 @@
     "importPath": "micro-mvc/src/config.js",
     "importStyle": "{MVC_MODEL_MODIFIED}",
     "description": "A custom event name for when multiple properties of a model have been modified",
-    "lineNumber": 26,
+    "lineNumber": 29,
     "type": {
       "types": [
         "string"
@@ -702,7 +701,7 @@
     "importPath": "micro-mvc/src/config.js",
     "importStyle": "{MVC_PROPERTY_CHANGED}",
     "description": "A custom event name for when a single property of a model has been modified",
-    "lineNumber": 31,
+    "lineNumber": 34,
     "type": {
       "types": [
         "string"
@@ -721,7 +720,7 @@
     "importPath": "micro-mvc/src/config.js",
     "importStyle": "{MVC_INPUT_CHANGED}",
     "description": "A custom event name for when an input in a View has been updated",
-    "lineNumber": 36,
+    "lineNumber": 39,
     "type": {
       "types": [
         "string"
@@ -740,7 +739,7 @@
     "importPath": "micro-mvc/src/config.js",
     "importStyle": "{MVC_VIEW_ELEMENT}",
     "description": "The name of the custom element defined by MVCView",
-    "lineNumber": 42,
+    "lineNumber": 45,
     "experimental": "this may be deprecated in the future",
     "type": {
       "types": [
@@ -752,7 +751,7 @@
     "__docId__": 58,
     "kind": "file",
     "name": "src/custom-elements/mvc-view.js",
-    "content": "import View from '../view';\r\nimport Model from '../model';\r\n\r\n/**\r\n * This class is a custom HTMLElement that provides some syntactic sugar for setting up Views and Models\r\n * @experimental This class is an experimental featue, and may not be valid in the future\r\n */\r\nexport default class MVCView extends HTMLElement {\r\n    constructor() {\r\n        super();\r\n    }\r\n\r\n    /**\r\n     * Adds a form around the content slot\r\n     */\r\n    connectedCallback() {\r\n        /**\r\n         * @type {object}\r\n         */\r\n        this._shadow = this.attachShadow({\r\n            mode: 'open'\r\n        });\r\n        let formNode = document.createElement('form');\r\n        let slot = document.createElement('slot');\r\n        formNode.append(slot);\r\n        this._shadow.appendChild(formNode);\r\n    }\r\n\r\n    /**\r\n     * Return the model for the view. May be null if model has not been supplied yet.\r\n     * @type {object}\r\n     */\r\n    get model() {\r\n        return this._model;\r\n    }\r\n\r\n    /**\r\n     * Set the model the view will observe and modify.\r\n     * @param {object} model An object to be turned into an MVC Model\r\n     */\r\n    set model(model) {\r\n        if (this._model) {\r\n            throw new Error('The model may only be set once.');\r\n        }\r\n\r\n        /**\r\n         * The Model instance encapsulated by this element\r\n         * @type {object}\r\n         */\r\n        this._model = new Model(model);\r\n\r\n        /**\r\n         * The View instance encapsulated by this element\r\n         * @type {object}\r\n         */\r\n        this._view = new View(this, this._model);\r\n    }\r\n}\r\n",
+    "content": "import View from '../view';\r\nimport Model from '../model';\r\n\r\n/**\r\n * This class is a custom HTMLElement that provides some syntactic sugar for setting up Views and Models\r\n * @experimental This class is an experimental featue, and may not be valid in the future\r\n */\r\nexport default class MVCView extends HTMLElement {\r\n    /**\r\n     * Simply call the super() constructor\r\n     */\r\n    constructor() {\r\n        super();\r\n    }\r\n\r\n    /**\r\n     * Adds a form around the content slot\r\n     */\r\n    connectedCallback() {\r\n        /**\r\n         * @type {object}\r\n         */\r\n        this._shadow = this.attachShadow({\r\n            mode: 'open'\r\n        });\r\n        let formNode = document.createElement('form');\r\n        let slot = document.createElement('slot');\r\n        formNode.append(slot);\r\n        this._shadow.appendChild(formNode);\r\n    }\r\n\r\n    /**\r\n     * Return the model for the view. May be null if model has not been supplied yet.\r\n     * @type {object}\r\n     */\r\n    get model() {\r\n        return this._model;\r\n    }\r\n\r\n    /**\r\n     * Set the model the view will observe and modify.\r\n     * @param {object} model An object to be turned into an MVC Model\r\n     */\r\n    set model(model) {\r\n        if (this._model) {\r\n            throw new Error('The model may only be set once.');\r\n        }\r\n\r\n        /**\r\n         * The Model instance encapsulated by this element\r\n         * @type {object}\r\n         */\r\n        this._model = new Model(model);\r\n\r\n        /**\r\n         * The View instance encapsulated by this element\r\n         * @type {object}\r\n         */\r\n        this._view = new View(this, this._model);\r\n    }\r\n}\r\n",
     "static": true,
     "longname": "C:/Users/Christopher/git/micro-mvc/src/custom-elements/mvc-view.js",
     "access": "public",
@@ -788,9 +787,8 @@
     "static": false,
     "longname": "src/custom-elements/mvc-view.js~MVCView#constructor",
     "access": "public",
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true
+    "description": "Simply call the super() constructor",
+    "lineNumber": 12
   },
   {
     "__docId__": 61,
@@ -803,7 +801,7 @@
     "longname": "src/custom-elements/mvc-view.js~MVCView#connectedCallback",
     "access": "public",
     "description": "Adds a form around the content slot",
-    "lineNumber": 16,
+    "lineNumber": 19,
     "params": [],
     "return": null
   },
@@ -816,7 +814,7 @@
     "longname": "src/custom-elements/mvc-view.js~MVCView#_shadow",
     "access": "private",
     "description": "",
-    "lineNumber": 20,
+    "lineNumber": 23,
     "type": {
       "nullable": null,
       "types": [
@@ -837,7 +835,7 @@
     "longname": "src/custom-elements/mvc-view.js~MVCView#model",
     "access": "public",
     "description": "Return the model for the view. May be null if model has not been supplied yet.",
-    "lineNumber": 33,
+    "lineNumber": 36,
     "type": {
       "nullable": null,
       "types": [
@@ -858,7 +856,7 @@
     "longname": "src/custom-elements/mvc-view.js~MVCView#model",
     "access": "public",
     "description": "Set the model the view will observe and modify.",
-    "lineNumber": 41,
+    "lineNumber": 44,
     "params": [
       {
         "nullable": null,
@@ -881,7 +879,7 @@
     "longname": "src/custom-elements/mvc-view.js~MVCView#_model",
     "access": "private",
     "description": "The Model instance encapsulated by this element",
-    "lineNumber": 50,
+    "lineNumber": 53,
     "type": {
       "nullable": null,
       "types": [
@@ -900,7 +898,7 @@
     "longname": "src/custom-elements/mvc-view.js~MVCView#_view",
     "access": "private",
     "description": "The View instance encapsulated by this element",
-    "lineNumber": 56,
+    "lineNumber": 59,
     "type": {
       "nullable": null,
       "types": [
@@ -1164,7 +1162,7 @@
     "__docId__": 77,
     "kind": "file",
     "name": "src/model.js",
-    "content": "import EventEmitter from './event-emitter';\r\n\r\nimport * as config from './config';\r\n\r\n/**\r\n * This class encapsulates a basic Object and dispatches events when they are changed\r\n * @extends {EventEmitter}\r\n */\r\nexport default class Model extends EventEmitter {\r\n    constructor(dataModel) {\r\n        super();\r\n\r\n        /**\r\n         * the raw data object which is encapsulated by the event emitter\r\n         * @type {object}\r\n         */\r\n        this._dataModel = dataModel;\r\n\r\n        for (let k of Object.keys(this._dataModel)) {\r\n\r\n            Object.defineProperty(this, k, {\r\n                innumerable: true,\r\n                get: () => {\r\n                    return this._dataModel[k];\r\n                },\r\n                set: (val) => {\r\n                    dataModel[k] = val;\r\n                    let e = new CustomEvent(config.MVC_PROPERTY_CHANGED, {\r\n                        detail: {\r\n                            model: this._dataModel,\r\n                            property: k,\r\n                            value: val\r\n                        }\r\n                    });\r\n                    this.dispatchEvent(e);\r\n                }\r\n            });\r\n        }\r\n    }\r\n\r\n    /**\r\n     * return the underlying _dataModel in its current state\r\n     * @type {object}\r\n     * @deprecated Use `dataModel` instead\r\n     */\r\n    get model() {\r\n        return this._dataModel;\r\n    }\r\n\r\n    /**\r\n     * return the underlying _dataModel in its current state\r\n     * @type {object}\r\n     */\r\n    get dataModel() {\r\n        return this._dataModel;\r\n    }\r\n\r\n    /**\r\n     * assign multiple values to the dataModel, and dispatch an event.\r\n     * @param {object} val An object containing the values to be updated\r\n     */\r\n    modify(val) {\r\n        Object.assign(this._dataModel, val);\r\n        //In some situations, it may be too computationally\r\n        //intensive to make updates to all listeners to model,\r\n        //so providing a list of the properties and values that\r\n        //were changed and the raw val object as \"updates\" so\r\n        //that only the updates are necessary to process\r\n        let e = new CustomEvent(config.MVC_MODEL_MODIFIED, {\r\n            detail: {\r\n                updates: val,\r\n                model: this._dataModel,\r\n                properties: [Object.keys(val)],\r\n                values: [Object.values(val)]\r\n            }\r\n        });\r\n\r\n        this.dispatchEvent(e);\r\n    }\r\n}\r\n",
+    "content": "import EventEmitter from './event-emitter';\r\n\r\nimport * as config from './config';\r\n\r\n/**\r\n * This class encapsulates a basic Object and dispatches events when they are changed\r\n * @extends {EventEmitter}\r\n */\r\nexport default class Model extends EventEmitter {\r\n    /**\r\n     * Create a Model which can observe and be observed by supplying a raw data object and encapsulating it\r\n     * @param {object} dataModel The raw data object to be encapsulated by the instance\r\n     */\r\n    constructor(dataModel) {\r\n        super();\r\n\r\n        /**\r\n         * the raw data object which is encapsulated by the event emitter\r\n         * @type {object}\r\n         */\r\n        this._dataModel = dataModel;\r\n\r\n        for (let k of Object.keys(this._dataModel)) {\r\n\r\n            Object.defineProperty(this, k, {\r\n                innumerable: true,\r\n                get: () => {\r\n                    return this._dataModel[k];\r\n                },\r\n                set: (val) => {\r\n                    dataModel[k] = val;\r\n                    let e = new CustomEvent(config.MVC_PROPERTY_CHANGED, {\r\n                        detail: {\r\n                            model: this._dataModel,\r\n                            property: k,\r\n                            value: val\r\n                        }\r\n                    });\r\n                    this.dispatchEvent(e);\r\n                }\r\n            });\r\n        }\r\n    }\r\n\r\n    /**\r\n     * return the underlying _dataModel in its current state\r\n     * @type {object}\r\n     * @deprecated Use `dataModel` instead\r\n     */\r\n    get model() {\r\n        return this._dataModel;\r\n    }\r\n\r\n    /**\r\n     * return the underlying _dataModel in its current state\r\n     * @type {object}\r\n     * @experimental This may be deprecated in the future to preserve the object's namespace\r\n     */\r\n    get dataModel() {\r\n        return this._dataModel;\r\n    }\r\n\r\n    /**\r\n     * assign multiple values to the dataModel, and dispatch an event.\r\n     * @param {object} val An object containing the values to be updated\r\n     * @experimental This may be deprecated in the future to preserve the object's namespace\r\n     */\r\n    modify(val) {\r\n        Object.assign(this._dataModel, val);\r\n        //In some situations, it may be too computationally\r\n        //intensive to make updates to all listeners to model,\r\n        //so providing a list of the properties and values that\r\n        //were changed and the raw val object as \"updates\" so\r\n        //that only the updates are necessary to process\r\n        let e = new CustomEvent(config.MVC_MODEL_MODIFIED, {\r\n            detail: {\r\n                updates: val,\r\n                model: this._dataModel,\r\n                properties: [Object.keys(val)],\r\n                values: [Object.values(val)]\r\n            }\r\n        });\r\n\r\n        this.dispatchEvent(e);\r\n    }\r\n}\r\n",
     "static": true,
     "longname": "C:/Users/Christopher/git/micro-mvc/src/model.js",
     "access": "public",
@@ -1199,9 +1197,20 @@
     "static": false,
     "longname": "src/model.js~Model#constructor",
     "access": "public",
-    "description": null,
-    "lineNumber": 10,
-    "undocument": true
+    "description": "Create a Model which can observe and be observed by supplying a raw data object and encapsulating it",
+    "lineNumber": 14,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "dataModel",
+        "description": "The raw data object to be encapsulated by the instance"
+      }
+    ]
   },
   {
     "__docId__": 80,
@@ -1212,7 +1221,7 @@
     "longname": "src/model.js~Model#_dataModel",
     "access": "private",
     "description": "the raw data object which is encapsulated by the event emitter",
-    "lineNumber": 17,
+    "lineNumber": 21,
     "type": {
       "nullable": null,
       "types": [
@@ -1233,7 +1242,7 @@
     "longname": "src/model.js~Model#model",
     "access": "public",
     "description": "return the underlying _dataModel in its current state",
-    "lineNumber": 46,
+    "lineNumber": 50,
     "deprecated": "Use `dataModel` instead",
     "type": {
       "nullable": null,
@@ -1255,7 +1264,8 @@
     "longname": "src/model.js~Model#dataModel",
     "access": "public",
     "description": "return the underlying _dataModel in its current state",
-    "lineNumber": 54,
+    "lineNumber": 59,
+    "experimental": "This may be deprecated in the future to preserve the object's namespace",
     "type": {
       "nullable": null,
       "types": [
@@ -1276,7 +1286,8 @@
     "longname": "src/model.js~Model#modify",
     "access": "public",
     "description": "assign multiple values to the dataModel, and dispatch an event.",
-    "lineNumber": 62,
+    "lineNumber": 68,
+    "experimental": "This may be deprecated in the future to preserve the object's namespace",
     "params": [
       {
         "nullable": null,
@@ -1368,7 +1379,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n    \"name\": \"micro-mvc\",\n    \"version\": \"1.3.0\",\n    \"description\": \"A minimal MVC tool\",\n    \"main\": \"lib/index.js\",\n    \"dependencies\": {},\n    \"devDependencies\": {\n        \"@babel/cli\": \"^7.5.0\",\n        \"@babel/core\": \"^7.5.4\",\n        \"@babel/plugin-transform-runtime\": \"^7.5.0\",\n        \"@babel/preset-env\": \"^7.5.4\",\n        \"@babel/runtime\": \"^7.5.4\",\n        \"babelify\": \"^10.0.0\",\n        \"browserify\": \"^16.3.0\",\n        \"esdoc\": \"^1.1.0\",\n        \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n        \"esdoc-standard-plugin\": \"^1.0.0\",\n        \"mocha\": \"^6.1.4\",\n        \"uglify-js\": \"^3.6.0\"\n    },\n    \"scripts\": {\n        \"test\": \"mocha\",\n        \"build\": \"esdoc && babel src/ --out-dir lib/ -s && browserify src/index.js -d -s mvc -t [ babelify ] | uglifyjs > dist/micro-mvc.min.js\"\n    },\n    \"repository\": {\n        \"type\": \"git\",\n        \"url\": \"git@github.com:theOutLiar/micro-mvc.git\"\n    },\n    \"babel\": {\n        \"presets\": [\n            \"@babel/env\"\n        ],\n        \"plugins\": [\n            \"module:@babel/plugin-transform-runtime\"\n        ]\n    },\n    \"esdoc\": {\n        \"source\": \"./src\",\n        \"destination\": \"./doc\",\n        \"plugins\": [\n            {\n                \"name\": \"esdoc-ecmascript-proposal-plugin\",\n                \"option\": {\n                    \"all\": true\n                }\n            },\n            {\n                \"name\": \"esdoc-standard-plugin\",\n                \"option\": {\n                    \"all\": true\n                }\n            }\n        ]\n    },\n    \"author\": \"Christopher J Gore\",\n    \"license\": \"MIT\",\n    \"homepage\": \"https://bitbucket.org/theOutLiar/micro-mvc#readme\"\n}\n",
+    "content": "{\n    \"name\": \"micro-mvc\",\n    \"version\": \"1.3.0\",\n    \"description\": \"A minimal MVC tool\",\n    \"main\": \"lib/index.js\",\n    \"dependencies\": {},\n    \"devDependencies\": {\n        \"@babel/cli\": \"^7.5.0\",\n        \"@babel/core\": \"^7.5.4\",\n        \"@babel/plugin-transform-runtime\": \"^7.5.0\",\n        \"@babel/preset-env\": \"^7.5.4\",\n        \"@babel/runtime\": \"^7.5.4\",\n        \"babelify\": \"^10.0.0\",\n        \"browserify\": \"^16.3.0\",\n        \"esdoc\": \"^1.1.0\",\n        \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n        \"esdoc-standard-plugin\": \"^1.0.0\",\n        \"mocha\": \"^6.1.4\",\n        \"uglify-js\": \"^3.6.0\"\n    },\n    \"scripts\": {\n        \"test\": \"mocha\",\n        \"build\": \"esdoc && babel src/ --out-dir lib/ -s && browserify src/index.js -d -s mvc -t [ babelify ] | uglifyjs > dist/micro-mvc.min.js\"\n    },\n    \"repository\": {\n        \"type\": \"git\",\n        \"url\": \"git@github.com:theOutLiar/micro-mvc.git\"\n    },\n    \"babel\": {\n        \"presets\": [\n            \"@babel/env\"\n        ],\n        \"plugins\": [\n            \"module:@babel/plugin-transform-runtime\"\n        ]\n    },\n    \"esdoc\": {\n        \"source\": \"./src\",\n        \"destination\": \"./docs\",\n        \"plugins\": [\n            {\n                \"name\": \"esdoc-ecmascript-proposal-plugin\",\n                \"option\": {\n                    \"all\": true\n                }\n            },\n            {\n                \"name\": \"esdoc-standard-plugin\",\n                \"option\": {\n                    \"all\": true\n                }\n            }\n        ]\n    },\n    \"author\": \"Christopher J Gore\",\n    \"license\": \"MIT\",\n    \"homepage\": \"https://bitbucket.org/theOutLiar/micro-mvc#readme\"\n}\n",
     "longname": "C:\\Users\\Christopher\\git\\micro-mvc\\package.json",
     "name": "package.json",
     "static": true,

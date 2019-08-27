@@ -1,3 +1,6 @@
+/**
+ * A prefix for use for custom event, attribute, and element names
+ */
 const APP_PREFIX = 'mvc';
 
 /**

@@ -1,6 +1,6 @@
 {
     "name": "micro-mvc",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "description": "A minimal MVC tool",
     "main": "lib/index.js",
     "dependencies": {},
@@ -36,7 +36,7 @@
     },
     "esdoc": {
         "source": "./src",
-        "destination": "./doc",
+        "destination": "./docs",
         "plugins": [
             {
                 "name": "esdoc-ecmascript-proposal-plugin",

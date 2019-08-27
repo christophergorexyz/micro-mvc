@@ -1,21 +1,17 @@
 {
-  "coverage": "90.9%",
+  "coverage": "100%",
   "expectCount": 33,
-  "actualCount": 30,
+  "actualCount": 33,
   "files": {
     "src/config.js": {
       "expectCount": 9,
-      "actualCount": 8,
-      "undocumentLines": [
-        1
-      ]
+      "actualCount": 9,
+      "undocumentLines": []
     },
     "src/custom-elements/mvc-view.js": {
       "expectCount": 8,
-      "actualCount": 7,
-      "undocumentLines": [
-        9
-      ]
+      "actualCount": 8,
+      "undocumentLines": []
     },
     "src/event-emitter.js": {
       "expectCount": 8,
@@ -24,10 +20,8 @@
     },
     "src/model.js": {
       "expectCount": 6,
-      "actualCount": 5,
-      "undocumentLines": [
-        10
-      ]
+      "actualCount": 6,
+      "undocumentLines": []
     },
     "src/view.js": {
       "expectCount": 2,
