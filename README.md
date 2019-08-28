@@ -35,5 +35,5 @@ let applicationContainer = document.querySelector('.application-container');
 let applicationView = new View(applicationContainer, applicationModel);
 ``` 
 
-[View the demo here](https://theoutliar.github.io/micro-mvc/demo/)
+[View the demo here](https://christophergorexyz.github.io/micro-mvc/demo/)
 

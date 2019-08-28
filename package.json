@@ -24,7 +24,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:theOutLiar/micro-mvc.git"
+        "url": "git@github.com:christophergorexyz/micro-mvc.git"
     },
     "babel": {
         "presets": [
@@ -54,5 +54,5 @@
     },
     "author": "Christopher J Gore",
     "license": "MIT",
-    "homepage": "https://bitbucket.org/theOutLiar/micro-mvc#readme"
+    "homepage": "https://christophergorexyz.github.io/micro-mvc"
 }
